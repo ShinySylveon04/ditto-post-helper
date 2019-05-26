@@ -14,13 +14,13 @@ export const initialState = {
   dittoNature: "Adamant",
   deposit: {
     species: "Fomantis",
-    ball: "Master Ball",
+    ball: "Poke Ball",
     gender: "Male",
     nickname: "",
     level: 0
   },
   player: {
-    language: "Japanese",
+    language: "English",
     game: "ORAS",
     trainerDescription: "",
     inGameName: "",

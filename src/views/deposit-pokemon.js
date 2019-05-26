@@ -16,10 +16,16 @@ export const DepositPokemonView = ({ setDepositProp, player, children }) => {
       <ColumnLayout>
         <Typography variant="h4">What Pokemon will you deposit?</Typography>
         <StyledDropdown
+          label="Pokemon"
+          id="pokemonDeposit"
+          name="pokemonDeposit"
           onChange={passEventValue(setDepositProp("species"))}
           options={getGameGen(player.game) === 6 ? gen6Pokemon : gen7Pokemon}
         />
         <StyledDropdown
+          label="Pokeball"
+          id="pokeball"
+          name="pokeball"
           onChange={passEventValue(setDepositProp("ball"))}
           options={[
             "Poké Ball",
@@ -41,6 +47,9 @@ export const DepositPokemonView = ({ setDepositProp, player, children }) => {
           ]}
         />
         <StyledDropdown
+          label="Gender"
+          id="gender"
+          name="gender"
           onChange={passEventValue(setDepositProp("gender"))}
           options={["Male", "Female"]}
         />

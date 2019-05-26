@@ -8,8 +8,10 @@ export const PickADittoView = ({ setPlayerProp, setDittoNature, children }) => {
   return (
     <React.Fragment>
       <ColumnLayout>
-        <Typography variant="h5">Select a Ditto</Typography>
         <StyledDropdown
+          label="Select a Ditto"
+          name="dittoNature"
+          id="dittoNature"
           onChange={passEventValue(setDittoNature)}
           options={[
             "Adamant",
@@ -34,8 +36,10 @@ export const PickADittoView = ({ setPlayerProp, setDittoNature, children }) => {
             "HP Rock"
           ]}
         />
-        <Typography variant="h5">Select Your Game Version</Typography>
         <StyledDropdown
+          label="Game Version"
+          name="gameVersion"
+          id="gameVersion"
           onChange={passEventValue(setPlayerProp("game"))}
           options={["ORAS", "XY", "SM", "USUM"]}
         />
@@ -44,7 +48,7 @@ export const PickADittoView = ({ setPlayerProp, setDittoNature, children }) => {
         href="https://www.reddit.com/r/morebreedingdittos/wiki/dittos"
         style={{ color: "#0277bd" }}
       >
-        <Typography variant="h6" style={{ color: "#0277bd" }}>
+        <Typography variant="body1" style={{ color: "#0277bd" }}>
           List of Ditto IVs and Natures
         </Typography>
       </a>

@@ -1,6 +1,9 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Select from "@material-ui/core/Select";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import FormHelperText from "@material-ui/core/FormHelperText";
 
 const styles = {
   container: {
@@ -14,28 +17,30 @@ const styles = {
   }
 };
 
-const Dropdown = ({ options, classes, onChange }) => {
+const Dropdown = ({ options, classes, onChange, name, id, label }) => {
   const { container: containerClassName, ...selectClasses } = classes;
 
   return (
     <div className={containerClassName}>
-      <Select
-        fullWidth
-        native
-        // value={this.state.age}
-        onChange={onChange}
-        classes={selectClasses}
-        inputProps={{
-          name: "age",
-          id: "age-native-simple"
-        }}
-      >
-        {options.map((option, index) => (
-          <option value={option} key={index}>
-            {option}
-          </option>
-        ))}
-      </Select>
+      <FormControl required style={{ minWidth: "130px", maxWidth: "400px" }}>
+        <InputLabel htmlFor={id}>{label}</InputLabel>
+        <Select
+          fullWidth
+          native
+          onChange={onChange}
+          classes={selectClasses}
+          inputProps={{
+            name: name,
+            id: id
+          }}
+        >
+          {options.map((option, index) => (
+            <option value={option} key={index}>
+              {option}
+            </option>
+          ))}
+        </Select>
+      </FormControl>
     </div>
   );
 };

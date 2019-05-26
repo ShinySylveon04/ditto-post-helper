@@ -17,6 +17,9 @@ const GTSMessageTextField = ({ setPlayerProp }) => (
 
 const GTSDropdown = ({ setPlayerProp }) => (
   <StyledDropdown
+    label="GTS Message"
+    name="gtsMessage"
+    id="gtsMessage"
     onChange={passEventValue(setPlayerProp("gtsMessage"))}
     options={Gen7Messages}
   />
@@ -38,10 +41,23 @@ const TrainerTextField = ({ setPlayerProp }) => (
 );
 
 const TrainerDropdown = ({ setPlayerProp }) => (
-  <StyledDropdown
-    onChange={passEventValue(setPlayerProp("trainerDescription"))}
-    options={ORASTrainers}
-  />
+  <React.Fragment>
+    <StyledDropdown
+      label="Trainer Description"
+      name="trainerDescription"
+      id="trainerDescription"
+      onChange={passEventValue(setPlayerProp("trainerDescription"))}
+      options={ORASTrainers}
+    />
+    <a
+      href="https://archives.bulbagarden.net/wiki/Category:Player_Search_System_icons"
+      style={{ color: "#0277bd" }}
+    >
+      <Typography variant="body1" style={{ color: "#0277bd" }}>
+        List of Trainer Icons
+      </Typography>
+    </a>
+  </React.Fragment>
 );
 
 const TrainerDescriptionInput = ({ game, setPlayerProp }) => {
@@ -60,6 +76,9 @@ export const InGamePlayerView = ({ setPlayerProp, player, children }) => {
           Describe what your trainer looks like
         </Typography>
         <StyledDropdown
+          label="Game Language"
+          name="gameLanguage"
+          id="gameLanguage"
           onChange={passEventValue(setPlayerProp("language"))}
           options={[
             "English",
