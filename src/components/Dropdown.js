@@ -3,7 +3,6 @@ import { withStyles } from "@material-ui/core/styles";
 import Select from "@material-ui/core/Select";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
-import FormHelperText from "@material-ui/core/FormHelperText";
 
 const styles = {
   container: {
@@ -27,7 +26,6 @@ const Dropdown = ({
   ...props
 }) => {
   const { container: containerClassName, ...selectClasses } = classes;
-
   return (
     <div className={containerClassName}>
       <FormControl required style={{ minWidth: "130px", maxWidth: "400px" }}>
