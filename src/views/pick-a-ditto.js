@@ -29,6 +29,7 @@ export const PickADittoView = ({
   return (
     <React.Fragment>
       <ColumnLayout>
+        <Typography variant="h4">Pick your Ditto</Typography>
         <StyledDropdown
           value={state.dittoNature}
           label="Select a Ditto"

@@ -78,9 +78,6 @@ export const InGamePlayerView = ({
     <React.Fragment>
       <ColumnLayout>
         <Typography variant="h4">Describe your in-game player</Typography>
-        <Typography variant="body1">
-          Describe what your trainer looks like
-        </Typography>
         <StyledDropdown
           value={state.player.language}
           label="Game Language"
