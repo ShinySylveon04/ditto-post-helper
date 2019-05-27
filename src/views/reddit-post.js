@@ -57,7 +57,12 @@ export const RedditPostView = ({ postText, postTitle, children }) => {
   return (
     <React.Fragment>
       <ColumnLayout>
-        <Typography variant="h4">Copy and submit your post 🎉</Typography>
+        <Typography variant="h4">
+          Copy and submit your post{" "}
+          <span role="img" aria-label="tada">
+            🎉
+          </span>
+        </Typography>
         <Typography variant="h5">Request title</Typography>
         <StyledTextField value={postTitle} inputRef={titleTextFieldRef} />
         <Typography variant="h5">Request body</Typography>
