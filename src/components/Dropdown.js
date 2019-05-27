@@ -13,6 +13,10 @@ const styles = {
     "&:focus": {
       backgroundColor: "inherit"
     }
+  },
+  formControl: {
+    minWidth: "130px",
+    maxWidth: "400px"
   }
 };
 
@@ -25,10 +29,10 @@ const Dropdown = ({
   label,
   ...props
 }) => {
-  const { container: containerClassName, ...selectClasses } = classes;
+  const { container, formControl, ...selectClasses } = classes;
   return (
-    <div className={containerClassName}>
-      <FormControl required style={{ minWidth: "130px", maxWidth: "400px" }}>
+    <div className={container}>
+      <FormControl required className={formControl}>
         <InputLabel htmlFor={id}>{label}</InputLabel>
         <Select
           fullWidth
