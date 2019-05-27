@@ -40,9 +40,10 @@ const TrainerTextField = ({ setPlayerProp }) => (
   />
 );
 
-const TrainerDropdown = ({ setPlayerProp }) => (
+const TrainerDropdown = ({ setPlayerProp, value }) => (
   <React.Fragment>
     <StyledDropdown
+      value={value}
       label="Trainer Description"
       name="trainerDescription"
       id="trainerDescription"
@@ -60,14 +61,19 @@ const TrainerDropdown = ({ setPlayerProp }) => (
   </React.Fragment>
 );
 
-const TrainerDescriptionInput = ({ game, setPlayerProp }) => {
+const TrainerDescriptionInput = ({ game, setPlayerProp, value }) => {
   const TrainerDescription =
     game === "ORAS" ? TrainerDropdown : TrainerTextField;
 
-  return <TrainerDescription setPlayerProp={setPlayerProp} />;
+  return <TrainerDescription setPlayerProp={setPlayerProp} value={value} />;
 };
 
-export const InGamePlayerView = ({ setPlayerProp, player, children }) => {
+export const InGamePlayerView = ({
+  setPlayerProp,
+  player,
+  children,
+  state
+}) => {
   return (
     <React.Fragment>
       <ColumnLayout>
@@ -76,6 +82,7 @@ export const InGamePlayerView = ({ setPlayerProp, player, children }) => {
           Describe what your trainer looks like
         </Typography>
         <StyledDropdown
+          value={state.player.language}
           label="Game Language"
           name="gameLanguage"
           id="gameLanguage"
@@ -92,6 +99,7 @@ export const InGamePlayerView = ({ setPlayerProp, player, children }) => {
           ]}
         />
         <TrainerDescriptionInput
+          value={state.player.trainerDescription}
           game={player.game}
           setPlayerProp={setPlayerProp}
         />

@@ -17,7 +17,15 @@ const styles = {
   }
 };
 
-const Dropdown = ({ options, classes, onChange, name, id, label }) => {
+const Dropdown = ({
+  options,
+  classes,
+  onChange,
+  name,
+  id,
+  label,
+  ...props
+}) => {
   const { container: containerClassName, ...selectClasses } = classes;
 
   return (
@@ -33,6 +41,7 @@ const Dropdown = ({ options, classes, onChange, name, id, label }) => {
             name: name,
             id: id
           }}
+          {...props}
         >
           {options.map((option, index) => (
             <option value={option} key={index}>

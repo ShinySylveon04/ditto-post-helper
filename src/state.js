@@ -1,4 +1,6 @@
 import curry from "lodash/curry";
+import { ORASTrainers } from "./utils/oras-trainers";
+import { gen6Pokemon } from "./utils/pokemon-deposits";
 
 export const SET_ACTIVE_STEP = "SET_ACTIVE_STEP";
 export const SET_DITTO_NATURE = "SET_DITTO_NATURE";
@@ -13,7 +15,7 @@ export const initialState = {
   activeStep: 0,
   dittoNature: "Adamant",
   deposit: {
-    species: "Fomantis",
+    species: gen6Pokemon[0],
     ball: "Poke Ball",
     gender: "Male",
     nickname: "",
@@ -22,7 +24,7 @@ export const initialState = {
   player: {
     language: "English",
     game: "ORAS",
-    trainerDescription: "",
+    trainerDescription: ORASTrainers[0],
     inGameName: "",
     gtsMessage: "",
     consoleRegion: ""
