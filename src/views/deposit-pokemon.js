@@ -9,6 +9,7 @@ import { ColumnLayout } from "../layouts/column-layout";
 import { passEventValue } from "../utils/pass-event-value";
 import { getGameGen } from "../utils/get-game-generation";
 import { gen6Pokemon, gen7Pokemon } from "../utils/pokemon-deposits";
+import { pokeballs } from "../utils/pokeballs";
 
 const mapStateToProps = ({ deposit, player }) => ({
   species: deposit.species,
@@ -47,24 +48,7 @@ const DepositPokemonView = ({
           id="pokeball"
           name="pokeball"
           onChange={passEventValue(partial(setDeposit, "ball"))}
-          options={[
-            "Poké Ball",
-            "Master Ball",
-            "Ultra Ball",
-            "Great Ball",
-            "Safari Ball",
-            "Net Ball",
-            "Dive Ball",
-            "Nest Ball",
-            "Repeat Ball",
-            "Timer Ball",
-            "Luxury Ball",
-            "Premier Ball",
-            "Dusk Ball",
-            "Heal Ball",
-            "Quick Ball",
-            "Other"
-          ]}
+          options={pokeballs}
         />
         <StyledDropdown
           value={gender}
