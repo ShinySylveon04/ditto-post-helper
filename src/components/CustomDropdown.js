@@ -5,7 +5,6 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import { MenuItem } from "@material-ui/core";
 import ListItemText from "@material-ui/core/ListItemText";
-import Typography from "@material-ui/core/Typography";
 
 const styles = {
   container: {
@@ -20,11 +19,11 @@ const styles = {
   },
   formControl: {
     minWidth: "130px",
-    maxWidth: "90%"
+    maxWidth: "400px"
   }
 };
 
-const Dropdown = ({
+const CustomDropdown = ({
   options,
   classes,
   onChange,
@@ -51,10 +50,18 @@ const Dropdown = ({
           {...props}
         >
           {options.map((option, index) => (
-            <MenuItem value={option} key={index}>
-              <Typography variant="inherit" noWrap>
-                {option}
-              </Typography>
+            <MenuItem value={option.name} key={index}>
+              <ListItemText>{option.name}</ListItemText>
+              <div
+                style={{
+                  backgroundImage: `url(${option.img})`,
+                  height: "30px",
+                  width: "30px",
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
+                  marginRight: "10px"
+                }}
+              />
             </MenuItem>
           ))}
         </Select>
@@ -63,4 +70,4 @@ const Dropdown = ({
   );
 };
 
-export const StyledDropdown = withStyles(styles)(Dropdown);
+export const StyledCustomDropdown = withStyles(styles)(CustomDropdown);

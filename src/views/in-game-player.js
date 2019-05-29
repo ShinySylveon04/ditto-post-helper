@@ -10,6 +10,7 @@ import { passEventValue } from "../utils/pass-event-value";
 import { gen7Messages } from "../utils/gen7-gts-messages";
 import { ORASTrainers } from "../utils/oras-trainers";
 import { getGameGen } from "../utils/get-game-generation";
+import { StyledCustomDropdown } from "../components/CustomDropdown";
 
 const mapStateToProps = ({ player }) => player;
 
@@ -24,8 +25,9 @@ const GTSMessageTextField = ({ setPlayer }) => (
   />
 );
 
-const GTSDropdown = ({ setPlayer }) => (
+const GTSDropdown = ({ setPlayer, gtsMessage }) => (
   <StyledDropdown
+    value={gtsMessage}
     label="GTS Message"
     name="gtsMessage"
     id="gtsMessage"
@@ -34,11 +36,11 @@ const GTSDropdown = ({ setPlayer }) => (
   />
 );
 
-const GTSMessageInput = ({ game, setPlayer }) => {
+const GTSMessageInput = ({ game, setPlayer, gtsMessage }) => {
   const GTSMessageComponent =
     getGameGen(game) === 6 ? GTSMessageTextField : GTSDropdown;
 
-  return <GTSMessageComponent setPlayer={setPlayer} />;
+  return <GTSMessageComponent setPlayer={setPlayer} gtsMessage={gtsMessage} />;
 };
 
 const TrainerTextField = ({ setPlayer }) => (
@@ -51,7 +53,7 @@ const TrainerTextField = ({ setPlayer }) => (
 
 const TrainerDropdown = ({ setPlayer, value }) => (
   <React.Fragment>
-    <StyledDropdown
+    <StyledCustomDropdown
       value={value}
       label="Trainer Description"
       name="trainerDescription"
@@ -59,14 +61,6 @@ const TrainerDropdown = ({ setPlayer, value }) => (
       onChange={passEventValue(partial(setPlayer, "trainerDescription"))}
       options={ORASTrainers}
     />
-    <a
-      href="https://archives.bulbagarden.net/wiki/Category:Player_Search_System_icons"
-      style={{ color: "#0277bd" }}
-    >
-      <Typography variant="body1" style={{ color: "#0277bd" }}>
-        List of Trainer Icons
-      </Typography>
-    </a>
   </React.Fragment>
 );
 
@@ -79,11 +73,11 @@ const TrainerDescriptionInput = ({ game, setPlayer, value }) => {
 
 const InGamePlayerView = ({
   setPlayer,
-  player,
   children,
   language,
   trainerDescription,
-  game
+  game,
+  gtsMessage
 }) => {
   return (
     <React.Fragment>
@@ -115,7 +109,11 @@ const InGamePlayerView = ({
           label="In game name"
           onChange={passEventValue(partial(setPlayer, "inGameName"))}
         />
-        <GTSMessageInput game={game} setPlayer={setPlayer} />
+        <GTSMessageInput
+          game={game}
+          setPlayer={setPlayer}
+          gtsMessage={gtsMessage}
+        />
         <StyledTextField
           label="3DS Region"
           onChange={passEventValue(partial(setPlayer, "consoleRegion"))}
