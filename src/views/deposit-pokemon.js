@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { setDeposit } from "../actions";
 import partial from "lodash/partial";
 import Typography from "@material-ui/core/Typography";
-import { StyledDropdown } from "../components/Dropdown";
+import { StyledDropdown, createDropdownItems } from "../components/Dropdown";
 import { StyledTextField } from "../components/TextField";
 import { ColumnLayout } from "../layouts/column-layout";
 import { passEventValue } from "../utils/pass-event-value";
@@ -40,24 +40,29 @@ const DepositPokemonView = ({
           id="pokemonDeposit"
           name="pokemonDeposit"
           onChange={passEventValue(partial(setDeposit, "species"))}
-          options={getGameGen(game) === 6 ? gen6Pokemon : gen7Pokemon}
-        />
+        >
+          {createDropdownItems(
+            getGameGen(game) === 6 ? gen6Pokemon : gen7Pokemon
+          )}
+        </StyledDropdown>
         <StyledDropdown
           value={ball}
           label="Pokeball"
           id="pokeball"
           name="pokeball"
           onChange={passEventValue(partial(setDeposit, "ball"))}
-          options={pokeballs}
-        />
+        >
+          {createDropdownItems(pokeballs)}
+        </StyledDropdown>
         <StyledDropdown
           value={gender}
           label="Gender"
           id="gender"
           name="gender"
           onChange={passEventValue(partial(setDeposit, "gender"))}
-          options={["Male", "Female"]}
-        />
+        >
+          {createDropdownItems(["Male", "Female"])}
+        </StyledDropdown>
         <StyledTextField
           label="Nickname"
           onChange={passEventValue(partial(setDeposit, "nickname"))}

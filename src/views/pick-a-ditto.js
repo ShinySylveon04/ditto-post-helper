@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { setDittoNature, setDeposit, setPlayer } from "../actions";
 import Typography from "@material-ui/core/Typography";
-import { StyledDropdown } from "../components/Dropdown";
+import { StyledDropdown, createDropdownItems } from "../components/Dropdown";
 import { ColumnLayout } from "../layouts/column-layout";
 import { passEventValue } from "../utils/pass-event-value";
 import { gen6Pokemon, gen7Pokemon } from "../utils/pokemon-deposits";
@@ -39,6 +39,34 @@ const PickADittoView = ({
     setPlayer("gtsMessage", defaultGTSMessage);
     setDeposit("species", defaultPokemon);
   };
+  const natureDropdownItems = createDropdownItems([
+    "Adamant",
+    "Brave",
+    "Bold",
+    "Relaxed",
+    "Impish",
+    "Timid",
+    "Jolly",
+    "Naive",
+    "Modest",
+    "Quiet",
+    "Calm",
+    "Sassy",
+    "Careful",
+    "HP Fighting",
+    "HP Fire",
+    "HP Flying",
+    "HP Grass",
+    "HP Ground",
+    "HP Ice",
+    "HP Rock"
+  ]);
+  const gameDropdownItems = createDropdownItems([
+    "ORAS",
+    "XY",
+    "Sun/Moon",
+    "Ultra Sun/Ultra Moon"
+  ]);
 
   return (
     <React.Fragment>
@@ -50,37 +78,18 @@ const PickADittoView = ({
           name="dittoNature"
           id="dittoNature"
           onChange={passEventValue(setDittoNature)}
-          options={[
-            "Adamant",
-            "Brave",
-            "Bold",
-            "Relaxed",
-            "Impish",
-            "Timid",
-            "Jolly",
-            "Naive",
-            "Modest",
-            "Quiet",
-            "Calm",
-            "Sassy",
-            "Careful",
-            "HP Fighting",
-            "HP Fire",
-            "HP Flying",
-            "HP Grass",
-            "HP Ground",
-            "HP Ice",
-            "HP Rock"
-          ]}
-        />
+        >
+          {natureDropdownItems}
+        </StyledDropdown>
         <StyledDropdown
           value={game}
           label="Game Version"
           name="gameVersion"
           id="gameVersion"
           onChange={passEventValue(onChangeGame)}
-          options={["ORAS", "XY", "Sun/Moon", "Ultra Sun/Ultra Moon"]}
-        />
+        >
+          {gameDropdownItems}
+        </StyledDropdown>
       </ColumnLayout>
       <a
         href="https://www.reddit.com/r/morebreedingdittos/wiki/dittos"

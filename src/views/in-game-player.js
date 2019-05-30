@@ -3,14 +3,17 @@ import { connect } from "react-redux";
 import { setPlayer } from "../actions";
 import partial from "lodash/partial";
 import Typography from "@material-ui/core/Typography";
-import { StyledDropdown } from "../components/Dropdown";
+import {
+  StyledDropdown,
+  createImageDropdownItems,
+  createDropdownItems
+} from "../components/Dropdown";
 import { StyledTextField } from "../components/TextField";
 import { ColumnLayout } from "../layouts/column-layout";
 import { passEventValue } from "../utils/pass-event-value";
 import { gen7Messages } from "../utils/gen7-gts-messages";
 import { ORASTrainers } from "../utils/oras-trainers";
 import { getGameGen } from "../utils/get-game-generation";
-import { StyledCustomDropdown } from "../components/CustomDropdown";
 
 const mapStateToProps = ({ player }) => player;
 
@@ -32,8 +35,9 @@ const GTSDropdown = ({ setPlayer, gtsMessage }) => (
     name="gtsMessage"
     id="gtsMessage"
     onChange={passEventValue(partial(setPlayer, "gtsMessage"))}
-    options={gen7Messages}
-  />
+  >
+    {createDropdownItems(gen7Messages)}
+  </StyledDropdown>
 );
 
 const GTSMessageInput = ({ game, setPlayer, gtsMessage }) => {
@@ -53,14 +57,15 @@ const TrainerTextField = ({ setPlayer }) => (
 
 const TrainerDropdown = ({ setPlayer, value }) => (
   <React.Fragment>
-    <StyledCustomDropdown
+    <StyledDropdown
       value={value}
       label="Trainer Description"
       name="trainerDescription"
       id="trainerDescription"
       onChange={passEventValue(partial(setPlayer, "trainerDescription"))}
-      options={ORASTrainers}
-    />
+    >
+      {createImageDropdownItems(ORASTrainers)}
+    </StyledDropdown>
   </React.Fragment>
 );
 
@@ -89,7 +94,8 @@ const InGamePlayerView = ({
           name="gameLanguage"
           id="gameLanguage"
           onChange={passEventValue(partial(setPlayer, "language"))}
-          options={[
+        >
+          {createDropdownItems([
             "English",
             "Japanese",
             "French",
@@ -98,8 +104,8 @@ const InGamePlayerView = ({
             "Spanish",
             "Korean",
             "Chinese"
-          ]}
-        />
+          ])}
+        </StyledDropdown>
         <TrainerDescriptionInput
           value={trainerDescription}
           game={game}

@@ -4,8 +4,8 @@ import Select from "@material-ui/core/Select";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import { MenuItem } from "@material-ui/core";
-import ListItemText from "@material-ui/core/ListItemText";
 import Typography from "@material-ui/core/Typography";
+import ListItemText from "@material-ui/core/ListItemText";
 
 const styles = {
   container: {
@@ -20,12 +20,37 @@ const styles = {
   },
   formControl: {
     minWidth: "130px",
-    maxWidth: "90%"
+    maxWidth: "100%"
   }
 };
 
+export const createDropdownItems = options =>
+  options.map((option, index) => (
+    <MenuItem value={option} key={index}>
+      <Typography variant="inherit" noWrap>
+        {option}
+      </Typography>
+    </MenuItem>
+  ));
+
+export const createImageDropdownItems = options =>
+  options.map((option, index) => (
+    <MenuItem value={option.name} key={index}>
+      <ListItemText>{option.name}</ListItemText>
+      <img
+        alt={option.name}
+        src={option.img}
+        style={{
+          height: "30px",
+          width: "30px",
+          marginRight: "10px"
+        }}
+      />
+    </MenuItem>
+  ));
+
 const Dropdown = ({
-  options,
+  children,
   classes,
   onChange,
   name,
@@ -50,13 +75,7 @@ const Dropdown = ({
           }}
           {...props}
         >
-          {options.map((option, index) => (
-            <MenuItem value={option} key={index}>
-              <Typography variant="inherit" noWrap>
-                {option}
-              </Typography>
-            </MenuItem>
-          ))}
+          {children}
         </Select>
       </FormControl>
     </div>
