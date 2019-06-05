@@ -61,17 +61,18 @@ const DepositPokemonView = ({
           name="gender"
           onChange={passEventValue(partial(setDeposit, "gender"))}
         >
-          {createDropdownItems(["Male", "Female"])}
+        {createDropdownItems(["Male", "Female"])}
         </StyledDropdown>
-        <StyledTextField
-          label="Nickname"
-          onChange={passEventValue(partial(setDeposit, "nickname"))}
-        />
         <StyledTextField
           type="number"
           label="Level"
           onChange={passEventValue(partial(setDeposit, "level"))}
         />
+        <StyledTextField
+          label="Nickname"
+          onChange={passEventValue(partial(setDeposit, "nickname"))}
+        />
+        <Typography variant="body2">Nickname the Pokemon to your Reddit username!</Typography>
       </ColumnLayout>
       {children}
     </React.Fragment>
