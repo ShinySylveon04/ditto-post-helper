@@ -72,7 +72,6 @@ const tooltipTitle = (
 
 const CustomTooltip = ({ classes, children }) => (
   <Tooltip
-    disableFocusListener
     disableTouchListener
     placement="top"
     title={tooltipTitle}
