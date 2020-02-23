@@ -16,7 +16,7 @@
   "dependencies": {
     "@material-ui/core": "^3.9.3",
     "@material-ui/icons": "^3.0.2",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.13",
     "mdi-material-ui": "^6.1.0",
     "parcel-bundler": "^1.12.3",
     "react": "^16.8.6",
