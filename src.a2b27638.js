@@ -90624,7 +90624,7 @@ var InGamePlayerView = function InGamePlayerView(_ref10) {
     setPlayer: setPlayer,
     classes: classes
   }), _react.default.createElement(_TextField.StyledTextField, {
-    label: "In game name",
+    label: "Home Name/IGN",
     onChange: (0, _passEventValue.passEventValue)((0, _partial.default)(setPlayer, "inGameName"))
   }), _react.default.createElement(GTSMessageInput, {
     game: game,
@@ -90695,7 +90695,7 @@ var createPostText = function createPostText(_ref2) {
       deposit = _ref2.deposit;
   var gen = (0, _getGameGeneration.getGameGen)(player.game);
   var dittoType = dittoNature.replace("HP ", "");
-  return "[".concat(gen, "]\n\n - Ditto Requested: ").concat(dittoType, "\n \n ---\n \n - Pok\xE9mon Deposited: ").concat(deposit.species, "\n - Nickname: ").concat(deposit.nickname, "\n - Pokeball: ").concat(deposit.ball, "\n - Gender: ").concat(deposit.gender, "\n - Level: ").concat(deposit.level, "\n \n ---\n \n - IGN: ").concat(player.inGameName, "\n - GTS Message: ").concat(player.gtsMessage, "\n - Game Version: ").concat(player.game, "\n - Game Language: ").concat(player.language, "\n - Trainer Description: ").concat(player.trainerDescription);
+  return "[".concat(gen, "]\n\n - Ditto Requested: ").concat(dittoType, "\n \n ---\n \n - Pok\xE9mon Deposited: ").concat(deposit.species, "\n - Nickname: ").concat(deposit.nickname, "\n - Pokeball: ").concat(deposit.ball, "\n - Gender: ").concat(deposit.gender, "\n - Level: ").concat(deposit.level, "\n \n ---\n \n - Home/IGN: ").concat(player.inGameName, "\n - GTS Message: ").concat(player.gtsMessage, "\n - Game Version: ").concat(player.game, "\n - Game Language: ").concat(player.language, "\n - Trainer Description: ").concat(player.trainerDescription);
 };
 
 exports.createPostText = createPostText;
@@ -91164,7 +91164,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56848" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51966" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
