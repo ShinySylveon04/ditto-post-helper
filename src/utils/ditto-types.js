@@ -15,11 +15,6 @@ export const natureDropdownItems = createDropdownItems([
   "Sassy",
   "Careful",
   "0 Attack",
-  "HP Fighting",
-  "HP Fire",
-  "HP Flying",
-  "HP Grass",
-  "HP Ground",
-  "HP Ice",
-  "HP Rock"
+  "Hidden Power",
+  "0Spe&0Atk"
 ]);
