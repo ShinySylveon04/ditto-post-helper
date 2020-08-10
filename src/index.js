@@ -22,38 +22,30 @@ const mapStateToProps = ({ activeStep, dittoNature, player, deposit }) => ({
   activeStep: activeStep,
   dittoNature,
   game: player.game,
-  deposit
+  deposit,
 });
 
 const mapDispatchToProps = {
-  setActiveStep
+  setActiveStep,
 };
 
-const styles = theme => ({
+const styles = (theme) => ({
   root: {
     margin: "1rem auto",
     width: "90%",
     [theme.breakpoints.down(370)]: {
-      width: "100%"
-    }
+      width: "100%",
+    },
   },
   contentContainer: { margin: "4rem 1rem" },
   buttonContainer: { marginTop: "1rem" },
-  button: { margin: 5 }
+  button: { margin: 5 },
 });
 
-// don't allow requesting of HP Dittos for Gen 8 or level 1 deposits
+// don't allow requesting of HP Ditto for Gen 8 or level 1 deposits
 const checkInput = (dittoNature, game, deposit) => {
   return (
-    ([
-      "HP Fighting",
-      "HP Fire",
-      "HP Flying",
-      "HP Grass",
-      "HP Ground",
-      "HP Ice",
-      "HP Rock"
-    ].includes(dittoNature) &&
+    (["Hidden Power"].includes(dittoNature) &&
       ["Sword/Shield"].includes(game)) ||
     deposit.level === "1"
   );
@@ -65,7 +57,7 @@ const App = ({
   activeStep,
   dittoNature,
   game,
-  deposit
+  deposit,
 }) => {
   const increaseActiveStep = () => {
     const step = Math.min(activeStep + 1, 3);
@@ -116,7 +108,7 @@ const App = ({
             "Pick your Ditto",
             "GTS Deposit",
             "Player Info",
-            "Copy and submit"
+            "Copy and submit",
           ]}
         />
         <div className={classes.contentContainer}>
