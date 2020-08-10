@@ -17,7 +17,7 @@
     "@material-ui/core": "^4.9.4",
     "@material-ui/icons": "^4.9.1",
     "lodash": "^4.17.11",
-    "mdi-material-ui": "^6.1.0",
+    "mdi-material-ui": "^6.17.0",
     "parcel-bundler": "^1.12.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

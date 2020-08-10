@@ -4,7 +4,7 @@ import AppBarBase from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
-import GithubCircle from "mdi-material-ui/GithubCircle";
+import Github from "mdi-material-ui/Github";
 import Reddit from "mdi-material-ui/Reddit";
 
 const styles = {
@@ -38,7 +38,7 @@ const AppBar = ({ classes }) => {
             target="_blank"
             href="https://github.com/ShinySylveon04/ditto-post-helper"
           >
-            <GithubCircle color="secondary" />
+            <Github color="secondary" />
           </IconButton>
         </Toolbar>
       </AppBarBase>
