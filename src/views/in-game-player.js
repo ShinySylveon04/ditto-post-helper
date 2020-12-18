@@ -19,6 +19,7 @@ import { gtsMessages } from "../utils/gts-messages";
 import { ORASTrainers } from "../utils/oras-trainers";
 import { SWSHTrainers } from "../utils/swsh-trainers";
 import { getGameGen } from "../utils/get-game-generation";
+import { ClothingLists } from "../utils/clothing-lists";
 
 const mapStateToProps = ({ player }) => player;
 
@@ -54,6 +55,7 @@ const GTSDropdown = ({ setPlayer, gtsMessage }) => (
   </StyledDropdown>
 );
 
+// if game is Gen 6 use textfield instead of preset messages
 const GTSMessageInput = ({ game, setPlayer, gtsMessage }) => {
   const GTSMessageComponent =
     getGameGen(game) === 6 ? GTSMessageTextField : GTSDropdown;
@@ -97,32 +99,7 @@ const TrainerTextField = ({ setPlayer, classes }) => (
       </CustomTooltip>
       Describe how your trainer looks in-game
     </Typography>
-    <Typography variant="body2">
-      Clothing Lists:{" "}
-      <a
-        href="https://www.serebii.net/xy/customisation.shtml"
-        target="_blank"
-        rel="noreferrer noopener"
-      >
-        XY
-      </a>{" "}
-      |{" "}
-      <a
-        href="https://www.serebii.net/sunmoon/customisation.shtml"
-        target="_blank"
-        rel="noreferrer noopener"
-      >
-        Sun/Moon
-      </a>{" "}
-      |{" "}
-      <a
-        href="https://www.serebii.net/ultrasunultramoon/customisation.shtml"
-        target="_blank"
-        rel="noreferrer noopener"
-      >
-        Ultra Sun/Ultra Moon
-      </a>
-    </Typography>
+    <ClothingLists/>
   </React.Fragment>
 );
 
