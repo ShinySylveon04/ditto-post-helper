@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { setDittoNature, setDeposit, setPlayer } from "../actions";
 import Typography from "@material-ui/core/Typography";
+import Link from "@material-ui/core/Link";
 import { PaperLayout } from "../components/Paper";
 import { StyledDropdown, createDropdownItems } from "../components/Dropdown";
 import { passEventValue } from "../utils/pass-event-value";
@@ -86,7 +87,7 @@ const PickADittoView = ({
         >
           {gameDropdownItems}
         </StyledDropdown>
-        <a
+        <Link
           href="https://www.reddit.com/r/morebreedingdittos/wiki/dittos"
           target="_blank"
           rel="noreferrer noopener"
@@ -95,7 +96,7 @@ const PickADittoView = ({
           <Typography variant="body1" style={{ color: "#0277bd" }}>
             List of Ditto IVs and Natures
           </Typography>
-        </a>
+        </Link>
         {children}
       </PaperLayout>
     </React.Fragment>
