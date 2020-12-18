@@ -49,8 +49,8 @@ const DepositPokemonView = ({
             getGameGen(game) === 6
               ? gen6Pokemon
               : getGameGen(game) === 8
-              ? gen8Pokemon
-              : gen7Pokemon
+                ? gen8Pokemon
+                : gen7Pokemon
           )}
         </StyledDropdown>
         <StyledDropdown
@@ -78,11 +78,9 @@ const DepositPokemonView = ({
         />
         <StyledTextField
           label="Nickname"
+          helperText="Nickname the Pokemon to your Reddit username!"
           onChange={passEventValue(partial(setDeposit, "nickname"))}
         />
-        <Typography variant="body2">
-          Nickname the Pokemon to your Reddit username!
-        </Typography>
         {children}
       </PaperLayout>
     </React.Fragment>

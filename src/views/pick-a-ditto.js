@@ -41,15 +41,15 @@ const PickADittoView = ({
     const defaultPokemon = isGenSixGame
       ? gen6Pokemon[0]
       : isGenEightGame
-      ? gen8Pokemon[0]
-      : gen7Pokemon[0];
+        ? gen8Pokemon[0]
+        : gen7Pokemon[0];
     const defaultGTSMessage = isGenSixGame ? "" : gtsMessages[0];
     const description =
       game === "ORAS"
         ? ORASTrainers[0]
         : game === "Sword/Shield"
-        ? SWSHTrainers[0].name
-        : "";
+          ? SWSHTrainers[0].name
+          : "";
     setPlayer("game", game);
     setPlayer("trainerDescription", description);
     setPlayer("gtsMessage", defaultGTSMessage);

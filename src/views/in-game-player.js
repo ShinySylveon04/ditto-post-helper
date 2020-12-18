@@ -85,7 +85,7 @@ const CustomTooltip = ({ classes, children }) => (
 const TrainerTextField = ({ setPlayer, classes }) => (
   <React.Fragment>
     <StyledTextField
-      multiline
+      multiline="true"
       label="Trainer description"
       onChange={passEventValue(partial(setPlayer, "trainerDescription"))}
     />
@@ -159,8 +159,8 @@ const TrainerDescriptionInput = ({ game, setPlayer, value, classes }) => {
     game === "ORAS"
       ? ORASTrainerDropdown
       : game === "Sword/Shield"
-      ? SWSHTrainerDropdown
-      : TrainerTextField;
+        ? SWSHTrainerDropdown
+        : TrainerTextField;
 
   return (
     <TrainerDescription setPlayer={setPlayer} value={value} classes={classes} />
