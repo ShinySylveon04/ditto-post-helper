@@ -34858,7 +34858,9 @@ var RuleList = /*#__PURE__*/function () {
       Renderer: Renderer,
       generateId: generateId,
       scoped: scoped,
-      name: name
+      name: name,
+      keyframes: this.keyframes,
+      selector: undefined
     }, ruleOptions); // When user uses .createStyleSheet(), duplicate names are not possible, but
     // `sheet.addRule()` opens the door for any duplicate rule name. When this happens
     // we need to make the key unique within this RuleList instance scope.
@@ -35986,7 +35988,7 @@ var instanceCounter = 0;
 var Jss = /*#__PURE__*/function () {
   function Jss(options) {
     this.id = instanceCounter++;
-    this.version = "10.3.0";
+    this.version = "10.4.0";
     this.plugins = new PluginsRegistry();
     this.options = {
       id: {
@@ -36098,8 +36100,10 @@ var Jss = /*#__PURE__*/function () {
 
 
     if (typeof name === 'object') {
+      // $FlowIgnore
       return this.createRule(undefined, name, style);
-    }
+    } // $FlowIgnore
+
 
     var ruleOptions = (0, _extends2.default)({}, options, {
       name: name,
@@ -46655,65 +46659,11 @@ var _IconButton = _interopRequireDefault(require("./IconButton"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 },{"./IconButton":"node_modules/@material-ui/core/esm/IconButton/IconButton.js"}],"node_modules/mdi-material-ui/util/createIcon.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _SvgIcon = _interopRequireDefault(require("@material-ui/core/SvgIcon"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-var _default = function _default(path) {
-  var Icon = _react["default"].memo(_react["default"].forwardRef(function (props, ref) {
-    return /*#__PURE__*/_react["default"].createElement(_SvgIcon["default"], _extends({}, props, {
-      ref: ref
-    }), /*#__PURE__*/_react["default"].createElement("path", {
-      d: path
-    }));
-  }));
-
-  Icon.muiName = 'SvgIcon';
-  return Icon;
-};
-
-exports["default"] = _default;
+"use strict";Object.defineProperty(exports,"__esModule",{value:true});exports["default"]=void 0;var _react=_interopRequireDefault(require("react"));var _SvgIcon=_interopRequireDefault(require("@material-ui/core/SvgIcon"));function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{"default":obj};}function _extends(){_extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};return _extends.apply(this,arguments);}var _default=function _default(path){var Icon=_react["default"].memo(_react["default"].forwardRef(function(props,ref){return/*#__PURE__*/_react["default"].createElement(_SvgIcon["default"],_extends({},props,{ref:ref}),/*#__PURE__*/_react["default"].createElement("path",{d:path}));}));Icon.muiName='SvgIcon';return Icon;};exports["default"]=_default;
 },{"react":"node_modules/react/index.js","@material-ui/core/SvgIcon":"node_modules/@material-ui/core/esm/SvgIcon/index.js"}],"node_modules/mdi-material-ui/Github.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-
-var _createIcon = _interopRequireDefault(require("./util/createIcon"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-var _default = (0, _createIcon["default"])('M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z');
-
-exports["default"] = _default;
+"use strict";Object.defineProperty(exports,"__esModule",{value:true});exports["default"]=void 0;var _createIcon=_interopRequireDefault(require("./util/createIcon"));function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{"default":obj};}var _default=(0,_createIcon["default"])('M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z');exports["default"]=_default;
 },{"./util/createIcon":"node_modules/mdi-material-ui/util/createIcon.js"}],"node_modules/mdi-material-ui/Reddit.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-
-var _createIcon = _interopRequireDefault(require("./util/createIcon"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-var _default = (0, _createIcon["default"])('M14.5 15.41C14.58 15.5 14.58 15.69 14.5 15.8C13.77 16.5 12.41 16.56 12 16.56C11.61 16.56 10.25 16.5 9.54 15.8C9.44 15.69 9.44 15.5 9.54 15.41C9.65 15.31 9.82 15.31 9.92 15.41C10.38 15.87 11.33 16 12 16C12.69 16 13.66 15.87 14.1 15.41C14.21 15.31 14.38 15.31 14.5 15.41M10.75 13.04C10.75 12.47 10.28 12 9.71 12C9.14 12 8.67 12.47 8.67 13.04C8.67 13.61 9.14 14.09 9.71 14.08C10.28 14.08 10.75 13.61 10.75 13.04M14.29 12C13.72 12 13.25 12.5 13.25 13.05S13.72 14.09 14.29 14.09C14.86 14.09 15.33 13.61 15.33 13.05C15.33 12.5 14.86 12 14.29 12M22 12C22 17.5 17.5 22 12 22S2 17.5 2 12C2 6.5 6.5 2 12 2S22 6.5 22 12M18.67 12C18.67 11.19 18 10.54 17.22 10.54C16.82 10.54 16.46 10.7 16.2 10.95C15.2 10.23 13.83 9.77 12.3 9.71L12.97 6.58L15.14 7.05C15.16 7.6 15.62 8.04 16.18 8.04C16.75 8.04 17.22 7.57 17.22 7C17.22 6.43 16.75 5.96 16.18 5.96C15.77 5.96 15.41 6.2 15.25 6.55L12.82 6.03C12.75 6 12.68 6.03 12.63 6.07C12.57 6.11 12.54 6.17 12.53 6.24L11.79 9.72C10.24 9.77 8.84 10.23 7.82 10.96C7.56 10.71 7.2 10.56 6.81 10.56C6 10.56 5.35 11.21 5.35 12C5.35 12.61 5.71 13.11 6.21 13.34C6.19 13.5 6.18 13.62 6.18 13.78C6.18 16 8.79 17.85 12 17.85C15.23 17.85 17.85 16.03 17.85 13.78C17.85 13.64 17.84 13.5 17.81 13.34C18.31 13.11 18.67 12.6 18.67 12Z');
-
-exports["default"] = _default;
+"use strict";Object.defineProperty(exports,"__esModule",{value:true});exports["default"]=void 0;var _createIcon=_interopRequireDefault(require("./util/createIcon"));function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{"default":obj};}var _default=(0,_createIcon["default"])('M14.5 15.41C14.58 15.5 14.58 15.69 14.5 15.8C13.77 16.5 12.41 16.56 12 16.56C11.61 16.56 10.25 16.5 9.54 15.8C9.44 15.69 9.44 15.5 9.54 15.41C9.65 15.31 9.82 15.31 9.92 15.41C10.38 15.87 11.33 16 12 16C12.69 16 13.66 15.87 14.1 15.41C14.21 15.31 14.38 15.31 14.5 15.41M10.75 13.04C10.75 12.47 10.28 12 9.71 12C9.14 12 8.67 12.47 8.67 13.04C8.67 13.61 9.14 14.09 9.71 14.08C10.28 14.08 10.75 13.61 10.75 13.04M14.29 12C13.72 12 13.25 12.5 13.25 13.05S13.72 14.09 14.29 14.09C14.86 14.09 15.33 13.61 15.33 13.05C15.33 12.5 14.86 12 14.29 12M22 12C22 17.5 17.5 22 12 22S2 17.5 2 12C2 6.5 6.5 2 12 2S22 6.5 22 12M18.67 12C18.67 11.19 18 10.54 17.22 10.54C16.82 10.54 16.46 10.7 16.2 10.95C15.2 10.23 13.83 9.77 12.3 9.71L12.97 6.58L15.14 7.05C15.16 7.6 15.62 8.04 16.18 8.04C16.75 8.04 17.22 7.57 17.22 7C17.22 6.43 16.75 5.96 16.18 5.96C15.77 5.96 15.41 6.2 15.25 6.55L12.82 6.03C12.75 6 12.68 6.03 12.63 6.07C12.57 6.11 12.54 6.17 12.53 6.24L11.79 9.72C10.24 9.77 8.84 10.23 7.82 10.96C7.56 10.71 7.2 10.56 6.81 10.56C6 10.56 5.35 11.21 5.35 12C5.35 12.61 5.71 13.11 6.21 13.34C6.19 13.5 6.18 13.62 6.18 13.78C6.18 16 8.79 17.85 12 17.85C15.23 17.85 17.85 16.03 17.85 13.78C17.85 13.64 17.84 13.5 17.81 13.34C18.31 13.11 18.67 12.6 18.67 12Z');exports["default"]=_default;
 },{"./util/createIcon":"node_modules/mdi-material-ui/util/createIcon.js"}],"src/components/AppBar.js":[function(require,module,exports) {
 "use strict";
 
@@ -87793,7 +87743,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.gen8Pokemon = exports.gen7Pokemon = exports.gen6Pokemon = void 0;
-var gen6Pokemon = ["Whismur", "Zubat"];
+var gen6Pokemon = ["Whismur", "Fletchling"];
 exports.gen6Pokemon = gen6Pokemon;
 var gen7Pokemon = ["Fomantis", "Poliwag", "Ledyba", "Spinarak"];
 exports.gen7Pokemon = gen7Pokemon;
@@ -87969,6 +87919,8 @@ var _actions = require("../actions");
 
 var _Typography = _interopRequireDefault(require("@material-ui/core/Typography"));
 
+var _Link = _interopRequireDefault(require("@material-ui/core/Link"));
+
 var _Paper = require("../components/Paper");
 
 var _Dropdown = require("../components/Dropdown");
@@ -88039,7 +87991,7 @@ var PickADittoView = function PickADittoView(_ref2) {
     name: "gameVersion",
     id: "gameVersion",
     onChange: (0, _passEventValue.passEventValue)(onChangeGame)
-  }, gameDropdownItems), /*#__PURE__*/_react.default.createElement("a", {
+  }, gameDropdownItems), /*#__PURE__*/_react.default.createElement(_Link.default, {
     href: "https://www.reddit.com/r/morebreedingdittos/wiki/dittos",
     target: "_blank",
     rel: "noreferrer noopener",
@@ -88056,7 +88008,7 @@ var PickADittoView = function PickADittoView(_ref2) {
 
 var ConnectedPickADittoView = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(PickADittoView);
 exports.ConnectedPickADittoView = ConnectedPickADittoView;
-},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","../actions":"src/actions.js","@material-ui/core/Typography":"node_modules/@material-ui/core/esm/Typography/index.js","../components/Paper":"src/components/Paper.js","../components/Dropdown":"src/components/Dropdown.js","../utils/pass-event-value":"src/utils/pass-event-value.js","../utils/ditto-types":"src/utils/ditto-types.js","../utils/pokemon-deposits":"src/utils/pokemon-deposits.js","../utils/get-game-generation":"src/utils/get-game-generation.js","../utils/gts-messages":"src/utils/gts-messages.js","../utils/oras-trainers":"src/utils/oras-trainers.js","../utils/swsh-trainers":"src/utils/swsh-trainers.js"}],"node_modules/lodash/_baseRest.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","../actions":"src/actions.js","@material-ui/core/Typography":"node_modules/@material-ui/core/esm/Typography/index.js","@material-ui/core/Link":"node_modules/@material-ui/core/esm/Link/index.js","../components/Paper":"src/components/Paper.js","../components/Dropdown":"src/components/Dropdown.js","../utils/pass-event-value":"src/utils/pass-event-value.js","../utils/ditto-types":"src/utils/ditto-types.js","../utils/pokemon-deposits":"src/utils/pokemon-deposits.js","../utils/get-game-generation":"src/utils/get-game-generation.js","../utils/gts-messages":"src/utils/gts-messages.js","../utils/oras-trainers":"src/utils/oras-trainers.js","../utils/swsh-trainers":"src/utils/swsh-trainers.js"}],"node_modules/lodash/_baseRest.js":[function(require,module,exports) {
 var identity = require('./identity'),
     overRest = require('./_overRest'),
     setToString = require('./_setToString');
@@ -89327,23 +89279,58 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.StyledTextField = void 0;
 
+var _react = _interopRequireDefault(require("react"));
+
 var _styles = require("@material-ui/core/styles");
 
 var _TextField = _interopRequireDefault(require("@material-ui/core/TextField"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var styles = {
+var useStyles = (0, _styles.makeStyles)({
   root: {
     marginTop: "1rem",
     marginBottom: "1rem",
     maxWidth: 300,
     width: "100%"
   }
+});
+
+var StyledTextField = function StyledTextField(_ref) {
+  var _ref$id = _ref.id,
+      id = _ref$id === void 0 ? "" : _ref$id,
+      _ref$label = _ref.label,
+      label = _ref$label === void 0 ? "" : _ref$label,
+      _ref$type = _ref.type,
+      type = _ref$type === void 0 ? "text" : _ref$type,
+      _ref$helperText = _ref.helperText,
+      helperText = _ref$helperText === void 0 ? "" : _ref$helperText,
+      onChange = _ref.onChange,
+      _ref$multiline = _ref.multiline,
+      multiline = _ref$multiline === void 0 ? false : _ref$multiline,
+      _ref$fullWidth = _ref.fullWidth,
+      fullWidth = _ref$fullWidth === void 0 ? false : _ref$fullWidth,
+      _ref$inputRef = _ref.inputRef,
+      inputRef = _ref$inputRef === void 0 ? "" : _ref$inputRef,
+      _ref$value = _ref.value,
+      value = _ref$value === void 0 ? "" : _ref$value;
+  var classes = useStyles();
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_TextField.default, {
+    className: classes.root,
+    id: id,
+    label: label,
+    type: type,
+    helperText: helperText,
+    onChange: onChange,
+    multiline: multiline,
+    fullWidth: fullWidth,
+    inputRef: inputRef,
+    value: value
+  }));
 };
-var StyledTextField = (0, _styles.withStyles)(styles)(_TextField.default);
+
 exports.StyledTextField = StyledTextField;
-},{"@material-ui/core/styles":"node_modules/@material-ui/core/esm/styles/index.js","@material-ui/core/TextField":"node_modules/@material-ui/core/esm/TextField/index.js"}],"src/utils/pokeballs.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","@material-ui/core/styles":"node_modules/@material-ui/core/esm/styles/index.js","@material-ui/core/TextField":"node_modules/@material-ui/core/esm/TextField/index.js"}],"src/utils/pokeballs.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -89434,10 +89421,9 @@ var DepositPokemonView = function DepositPokemonView(_ref2) {
     onChange: (0, _passEventValue.passEventValue)((0, _partial.default)(setDeposit, "level"))
   }), /*#__PURE__*/_react.default.createElement(_TextField.StyledTextField, {
     label: "Nickname",
+    helperText: "Nickname the Pokemon to your Reddit username!",
     onChange: (0, _passEventValue.passEventValue)((0, _partial.default)(setDeposit, "nickname"))
-  }), /*#__PURE__*/_react.default.createElement(_Typography.default, {
-    variant: "body2"
-  }, "Nickname the Pokemon to your Reddit username!"), children));
+  }), children));
 };
 
 var ConnectedDepositPokemonView = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(DepositPokemonView);
@@ -89461,7 +89447,61 @@ var _default = (0, _createSvgIcon.default)(_react.default.createElement("path", 
 }), 'HelpOutline');
 
 exports.default = _default;
-},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@babel/runtime/helpers/interopRequireDefault.js","react":"node_modules/react/index.js","./utils/createSvgIcon":"node_modules/@material-ui/icons/utils/createSvgIcon.js"}],"src/views/in-game-player.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@babel/runtime/helpers/interopRequireDefault.js","react":"node_modules/react/index.js","./utils/createSvgIcon":"node_modules/@material-ui/icons/utils/createSvgIcon.js"}],"src/utils/clothing-lists.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.ClothingLists = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _Typography = _interopRequireDefault(require("@material-ui/core/Typography"));
+
+var _Link = _interopRequireDefault(require("@material-ui/core/Link"));
+
+var _styles = require("@material-ui/core/styles");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var useStyles = (0, _styles.makeStyles)(function (theme) {
+  return {
+    root: {
+      '& > * + *': {
+        marginLeft: theme.spacing(1)
+      }
+    }
+  };
+});
+var links = [{
+  link: "https://www.serebii.net/xy/customisation.shtml",
+  text: "XY"
+}, {
+  link: "https://www.serebii.net/sunmoon/customisation.shtml",
+  text: "Sun/Moon"
+}, {
+  link: "https://www.serebii.net/ultrasunultramoon/customisation.shtml",
+  text: "Ultra Sun/Ultra Moon"
+}];
+
+var ClothingLists = function ClothingLists() {
+  var classes = useStyles();
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Typography.default, {
+    variant: "body2",
+    className: classes.root
+  }, "Clothing Lists:", " ", links.map(function (link, index) {
+    return /*#__PURE__*/_react.default.createElement(_Link.default, {
+      href: link.link,
+      target: "_blank",
+      rel: "noreferrer noopener",
+      key: index
+    }, link.text);
+  })));
+};
+
+exports.ClothingLists = ClothingLists;
+},{"react":"node_modules/react/index.js","@material-ui/core/Typography":"node_modules/@material-ui/core/esm/Typography/index.js","@material-ui/core/Link":"node_modules/@material-ui/core/esm/Link/index.js","@material-ui/core/styles":"node_modules/@material-ui/core/esm/styles/index.js"}],"src/views/in-game-player.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -89503,6 +89543,8 @@ var _swshTrainers = require("../utils/swsh-trainers");
 
 var _getGameGeneration = require("../utils/get-game-generation");
 
+var _clothingLists = require("../utils/clothing-lists");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(_ref) {
@@ -89542,7 +89584,8 @@ var GTSDropdown = function GTSDropdown(_ref3) {
     id: "gtsMessage",
     onChange: (0, _passEventValue.passEventValue)((0, _partial.default)(setPlayer, "gtsMessage"))
   }, (0, _Dropdown.createDropdownItems)(_gtsMessages.gtsMessages));
-};
+}; // if game is Gen 6 use textfield instead of preset messages
+
 
 var GTSMessageInput = function GTSMessageInput(_ref4) {
   var game = _ref4.game,
@@ -89576,7 +89619,7 @@ var TrainerTextField = function TrainerTextField(_ref6) {
   var setPlayer = _ref6.setPlayer,
       classes = _ref6.classes;
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_TextField.StyledTextField, {
-    multiline: true,
+    multiline: "true",
     label: "Trainer description",
     onChange: (0, _passEventValue.passEventValue)((0, _partial.default)(setPlayer, "trainerDescription"))
   }), /*#__PURE__*/_react.default.createElement(_Typography.default, {
@@ -89587,21 +89630,7 @@ var TrainerTextField = function TrainerTextField(_ref6) {
     color: "primary"
   }, /*#__PURE__*/_react.default.createElement(_HelpOutline.default, {
     fontSize: "small"
-  }))), "Describe how your trainer looks in-game"), /*#__PURE__*/_react.default.createElement(_Typography.default, {
-    variant: "body2"
-  }, "Clothing Lists:", " ", /*#__PURE__*/_react.default.createElement("a", {
-    href: "https://www.serebii.net/xy/customisation.shtml",
-    target: "_blank",
-    rel: "noreferrer noopener"
-  }, "XY"), " ", "|", " ", /*#__PURE__*/_react.default.createElement("a", {
-    href: "https://www.serebii.net/sunmoon/customisation.shtml",
-    target: "_blank",
-    rel: "noreferrer noopener"
-  }, "Sun/Moon"), " ", "|", " ", /*#__PURE__*/_react.default.createElement("a", {
-    href: "https://www.serebii.net/ultrasunultramoon/customisation.shtml",
-    target: "_blank",
-    rel: "noreferrer noopener"
-  }, "Ultra Sun/Ultra Moon")));
+  }))), "Describe how your trainer looks in-game"), /*#__PURE__*/_react.default.createElement(_clothingLists.ClothingLists, null));
 };
 
 var ORASTrainerDropdown = function ORASTrainerDropdown(_ref7) {
@@ -89674,7 +89703,7 @@ var InGamePlayerView = function InGamePlayerView(_ref10) {
 
 var ConnectedInGamePlayerView = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(InGamePlayerView);
 exports.ConnectedInGamePlayerView = ConnectedInGamePlayerView;
-},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","../actions":"src/actions.js","lodash/partial":"node_modules/lodash/partial.js","@material-ui/icons/HelpOutline":"node_modules/@material-ui/icons/HelpOutline.js","@material-ui/core/Typography":"node_modules/@material-ui/core/esm/Typography/index.js","../components/Paper":"src/components/Paper.js","@material-ui/core/styles/makeStyles":"node_modules/@material-ui/core/styles/makeStyles.js","@material-ui/core/IconButton":"node_modules/@material-ui/core/esm/IconButton/index.js","@material-ui/core/Tooltip":"node_modules/@material-ui/core/esm/Tooltip/index.js","../components/Dropdown":"src/components/Dropdown.js","../components/TextField":"src/components/TextField.js","../utils/pass-event-value":"src/utils/pass-event-value.js","../utils/gts-messages":"src/utils/gts-messages.js","../utils/oras-trainers":"src/utils/oras-trainers.js","../utils/swsh-trainers":"src/utils/swsh-trainers.js","../utils/get-game-generation":"src/utils/get-game-generation.js"}],"src/utils/copy-to-clipboard.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","../actions":"src/actions.js","lodash/partial":"node_modules/lodash/partial.js","@material-ui/icons/HelpOutline":"node_modules/@material-ui/icons/HelpOutline.js","@material-ui/core/Typography":"node_modules/@material-ui/core/esm/Typography/index.js","../components/Paper":"src/components/Paper.js","@material-ui/core/styles/makeStyles":"node_modules/@material-ui/core/styles/makeStyles.js","@material-ui/core/IconButton":"node_modules/@material-ui/core/esm/IconButton/index.js","@material-ui/core/Tooltip":"node_modules/@material-ui/core/esm/Tooltip/index.js","../components/Dropdown":"src/components/Dropdown.js","../components/TextField":"src/components/TextField.js","../utils/pass-event-value":"src/utils/pass-event-value.js","../utils/gts-messages":"src/utils/gts-messages.js","../utils/oras-trainers":"src/utils/oras-trainers.js","../utils/swsh-trainers":"src/utils/swsh-trainers.js","../utils/get-game-generation":"src/utils/get-game-generation.js","../utils/clothing-lists":"src/utils/clothing-lists.js"}],"src/utils/copy-to-clipboard.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -90207,7 +90236,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53600" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50480" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
