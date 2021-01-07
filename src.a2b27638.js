@@ -86102,6 +86102,7 @@ function setDittoNature(value) {
 }
 
 function setDeposit(prop, value) {
+  console.log(prop, value);
   return {
     type: SET_DEPOSIT,
     value: {
@@ -89287,6 +89288,12 @@ var _TextField = _interopRequireDefault(require("@material-ui/core/TextField"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
 var useStyles = (0, _styles.makeStyles)({
   root: {
     marginTop: "1rem",
@@ -89297,8 +89304,7 @@ var useStyles = (0, _styles.makeStyles)({
 });
 
 var StyledTextField = function StyledTextField(_ref) {
-  var _ref$id = _ref.id,
-      id = _ref$id === void 0 ? "" : _ref$id,
+  var id = _ref.id,
       _ref$label = _ref.label,
       label = _ref$label === void 0 ? "" : _ref$label,
       _ref$type = _ref.type,
@@ -89310,12 +89316,11 @@ var StyledTextField = function StyledTextField(_ref) {
       multiline = _ref$multiline === void 0 ? false : _ref$multiline,
       _ref$fullWidth = _ref.fullWidth,
       fullWidth = _ref$fullWidth === void 0 ? false : _ref$fullWidth,
-      _ref$inputRef = _ref.inputRef,
-      inputRef = _ref$inputRef === void 0 ? "" : _ref$inputRef,
-      _ref$value = _ref.value,
-      value = _ref$value === void 0 ? "" : _ref$value;
+      inputRef = _ref.inputRef,
+      props = _objectWithoutProperties(_ref, ["id", "label", "type", "helperText", "onChange", "multiline", "fullWidth", "inputRef"]);
+
   var classes = useStyles();
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_TextField.default, {
+  return /*#__PURE__*/_react.default.createElement(_TextField.default, _extends({
     className: classes.root,
     id: id,
     label: label,
@@ -89324,9 +89329,8 @@ var StyledTextField = function StyledTextField(_ref) {
     onChange: onChange,
     multiline: multiline,
     fullWidth: fullWidth,
-    inputRef: inputRef,
-    value: value
-  }));
+    inputRef: inputRef
+  }, props));
 };
 
 exports.StyledTextField = StyledTextField;
@@ -90236,7 +90240,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50480" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60246" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
