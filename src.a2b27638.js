@@ -90453,7 +90453,7 @@ function PaperLayout(_ref) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.StyledDropdown = exports.createImageDropdownItems = exports.createDropdownItems = void 0;
+exports.StyledDropdown = exports.createDropdownItems = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -90468,8 +90468,6 @@ var _InputLabel = _interopRequireDefault(require("@material-ui/core/InputLabel")
 var _core = require("@material-ui/core");
 
 var _Typography = _interopRequireDefault(require("@material-ui/core/Typography"));
-
-var _ListItemText = _interopRequireDefault(require("@material-ui/core/ListItemText"));
 
 var _excluded = ["children", "classes", "onChange", "name", "id", "label", "value"],
     _excluded2 = ["container", "formControl"];
@@ -90513,25 +90511,6 @@ var createDropdownItems = function createDropdownItems(options) {
 
 exports.createDropdownItems = createDropdownItems;
 
-var createImageDropdownItems = function createImageDropdownItems(options) {
-  return options.map(function (option, index) {
-    return /*#__PURE__*/_react.default.createElement(_core.MenuItem, {
-      value: option.name,
-      key: index
-    }, /*#__PURE__*/_react.default.createElement(_ListItemText.default, null, option.name), /*#__PURE__*/_react.default.createElement("img", {
-      alt: option.name,
-      src: option.img,
-      style: {
-        height: "30px",
-        width: "30px",
-        marginRight: "10px"
-      }
-    }));
-  });
-};
-
-exports.createImageDropdownItems = createImageDropdownItems;
-
 var Dropdown = function Dropdown(_ref) {
   var children = _ref.children,
       classes = _ref.classes,
@@ -90567,7 +90546,7 @@ var Dropdown = function Dropdown(_ref) {
 
 var StyledDropdown = (0, _styles.withStyles)(styles)(Dropdown);
 exports.StyledDropdown = StyledDropdown;
-},{"react":"node_modules/react/index.js","@material-ui/core/styles":"node_modules/@material-ui/core/esm/styles/index.js","@material-ui/core/Select":"node_modules/@material-ui/core/esm/Select/index.js","@material-ui/core/FormControl":"node_modules/@material-ui/core/esm/FormControl/index.js","@material-ui/core/InputLabel":"node_modules/@material-ui/core/esm/InputLabel/index.js","@material-ui/core":"node_modules/@material-ui/core/esm/index.js","@material-ui/core/Typography":"node_modules/@material-ui/core/esm/Typography/index.js","@material-ui/core/ListItemText":"node_modules/@material-ui/core/esm/ListItemText/index.js"}],"src/utils/pass-event-value.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","@material-ui/core/styles":"node_modules/@material-ui/core/esm/styles/index.js","@material-ui/core/Select":"node_modules/@material-ui/core/esm/Select/index.js","@material-ui/core/FormControl":"node_modules/@material-ui/core/esm/FormControl/index.js","@material-ui/core/InputLabel":"node_modules/@material-ui/core/esm/InputLabel/index.js","@material-ui/core":"node_modules/@material-ui/core/esm/index.js","@material-ui/core/Typography":"node_modules/@material-ui/core/esm/Typography/index.js"}],"src/utils/pass-event-value.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -90592,176 +90571,9 @@ exports.natureDropdownItems = void 0;
 
 var _Dropdown = require("../components/Dropdown");
 
-var natureDropdownItems = (0, _Dropdown.createDropdownItems)(["Adamant", "Brave", "Bold", "Relaxed", "Impish", "Timid", "Jolly", "Naive", "Modest", "Quiet", "Calm", "Sassy", "Careful", "0 Attack", "Hidden Power", "0Spe&0Atk"]);
+var natureDropdownItems = (0, _Dropdown.createDropdownItems)(["Adamant", "Brave", "Bold", "Relaxed", "Impish", "Timid", "Jolly", "Naive", "Modest", "Quiet", "Calm", "Sassy", "Careful", "0 Attack", "0Spe&0Atk"]);
 exports.natureDropdownItems = natureDropdownItems;
-},{"../components/Dropdown":"src/components/Dropdown.js"}],"src/utils/pokemon-deposits.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.gen8Pokemon = exports.gen7Pokemon = exports.gen6Pokemon = void 0;
-var gen6Pokemon = ["Whismur", "Fletchling"];
-exports.gen6Pokemon = gen6Pokemon;
-var gen7Pokemon = ["Fomantis", "Poliwag", "Ledyba", "Spinarak"];
-exports.gen7Pokemon = gen7Pokemon;
-var gen8Pokemon = ["Wingull", "Chewtle", "Bunnelby"];
-exports.gen8Pokemon = gen8Pokemon;
-},{}],"src/utils/get-game-generation.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.getGameGen = void 0;
-
-var getGameGen = function getGameGen(game) {
-  return ["ORAS", "XY"].includes(game) ? 6 : ["Sword/Shield"].includes(game) ? 8 : 7;
-};
-
-exports.getGameGen = getGameGen;
-},{}],"src/utils/gts-messages.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.gtsMessages = void 0;
-var gtsMessages = ["Please trade Pokemon with me. Thanks in advance.", "I want to trade for a Pokemon that will help me with my adventure.", "I want to trade for a Pokemon that is strong in battles.", "I want to trade for a treasured Pokemon that has been raised from an Egg.", "I want to fill my Pokedex.", "I want to fill my Pokedex with other languages.", "I want to trade for one of your precious Pokemon you've given a nickname to.", "This is a Pokemon I raised very carefully. Please trade with me if you'd like.", "This is a Pokemon that just hatched. Please raise it carefully.", "This is a Pokemon that I raised so that it will do great in battles.", "This is a Pokemon with great potential. Please raise it if you'd like."];
-exports.gtsMessages = gtsMessages;
-},{}],"src/utils/oras-trainers.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.ORASTrainers = void 0;
-var ORASTrainers = [{
-  name: "Ace Trainer Male",
-  img: "https://raw.githubusercontent.com/kwsch/PKHeX/master/PKHeX.Drawing/Resources/img/Trainer%20Sprites/tr_54.png"
-}, {
-  name: "Ace Trainer Female",
-  img: "https://raw.githubusercontent.com/kwsch/PKHeX/master/PKHeX.Drawing/Resources/img/Trainer%20Sprites/tr_55.png"
-}, {
-  name: "Aroma Lady",
-  img: "https://raw.githubusercontent.com/kwsch/PKHeX/master/PKHeX.Drawing/Resources/img/Trainer%20Sprites/tr_41.png"
-}, {
-  name: "Battle Girl",
-  img: "https://raw.githubusercontent.com/kwsch/PKHeX/master/PKHeX.Drawing/Resources/img/Trainer%20Sprites/tr_45.png"
-}, {
-  name: "Beauty",
-  img: "https://raw.githubusercontent.com/kwsch/PKHeX/master/PKHeX.Drawing/Resources/img/Trainer%20Sprites/tr_63.png"
-}, {
-  name: "Black Belt",
-  img: "https://raw.githubusercontent.com/kwsch/PKHeX/master/PKHeX.Drawing/Resources/img/Trainer%20Sprites/tr_44.png"
-}, {
-  name: "Camper",
-  img: "https://raw.githubusercontent.com/kwsch/PKHeX/master/PKHeX.Drawing/Resources/img/Trainer%20Sprites/tr_68.png"
-}, {
-  name: "Delinquent",
-  img: "https://raw.githubusercontent.com/kwsch/PKHeX/master/PKHeX.Drawing/Resources/img/Trainer%20Sprites/tr_57.png"
-}, {
-  name: "Expert Male",
-  img: "https://raw.githubusercontent.com/kwsch/PKHeX/master/PKHeX.Drawing/Resources/img/Trainer%20Sprites/tr_58.png"
-}, {
-  name: "Expert Female",
-  img: "https://raw.githubusercontent.com/kwsch/PKHeX/master/PKHeX.Drawing/Resources/img/Trainer%20Sprites/tr_59.png"
-}, {
-  name: "Fairy Tale Girl",
-  img: "https://raw.githubusercontent.com/kwsch/PKHeX/master/PKHeX.Drawing/Resources/img/Trainer%20Sprites/tr_47.png"
-}, {
-  name: "Guitarist",
-  img: "https://raw.githubusercontent.com/kwsch/PKHeX/master/PKHeX.Drawing/Resources/img/Trainer%20Sprites/tr_64.png"
-}, {
-  name: "Hex Maniac",
-  img: "https://raw.githubusercontent.com/kwsch/PKHeX/master/PKHeX.Drawing/Resources/img/Trainer%20Sprites/tr_53.png"
-}, {
-  name: "Hiker",
-  img: "https://raw.githubusercontent.com/kwsch/PKHeX/master/PKHeX.Drawing/Resources/img/Trainer%20Sprites/tr_40.png"
-}, {
-  name: "Lady",
-  img: "https://raw.githubusercontent.com/kwsch/PKHeX/master/PKHeX.Drawing/Resources/img/Trainer%20Sprites/tr_60.png"
-}, {
-  name: "Lass",
-  img: "https://raw.githubusercontent.com/kwsch/PKHeX/master/PKHeX.Drawing/Resources/img/Trainer%20Sprites/tr_65.png"
-}, {
-  name: "Ninja Boy",
-  img: "https://raw.githubusercontent.com/kwsch/PKHeX/master/PKHeX.Drawing/Resources/img/Trainer%20Sprites/tr_62.png"
-}, {
-  name: "Picnicker",
-  img: "https://raw.githubusercontent.com/kwsch/PKHeX/master/PKHeX.Drawing/Resources/img/Trainer%20Sprites/tr_69.png"
-}, {
-  name: "Poke Fan Male",
-  img: "https://raw.githubusercontent.com/kwsch/PKHeX/master/PKHeX.Drawing/Resources/img/Trainer%20Sprites/tr_48.png"
-}, {
-  name: "Poke Fan Female",
-  img: "https://raw.githubusercontent.com/kwsch/PKHeX/master/PKHeX.Drawing/Resources/img/Trainer%20Sprites/tr_49.png"
-}, {
-  name: "Poke Maniac",
-  img: "https://raw.githubusercontent.com/kwsch/PKHeX/master/PKHeX.Drawing/Resources/img/Trainer%20Sprites/tr_46.png"
-}, {
-  name: "Pokemon Breeder Male",
-  img: "https://raw.githubusercontent.com/kwsch/PKHeX/master/PKHeX.Drawing/Resources/img/Trainer%20Sprites/tr_66.png"
-}, {
-  name: "Pokemon Breeder Female",
-  img: "https://raw.githubusercontent.com/kwsch/PKHeX/master/PKHeX.Drawing/Resources/img/Trainer%20Sprites/tr_67.png"
-}, {
-  name: "Pokemon Ranger Male",
-  img: "https://raw.githubusercontent.com/kwsch/PKHeX/master/PKHeX.Drawing/Resources/img/Trainer%20Sprites/tr_50.png"
-}, {
-  name: "Pokemon Ranger Female",
-  img: "https://raw.githubusercontent.com/kwsch/PKHeX/master/PKHeX.Drawing/Resources/img/Trainer%20Sprites/tr_51.png"
-}, {
-  name: "Rich Boy",
-  img: "https://raw.githubusercontent.com/kwsch/PKHeX/master/PKHeX.Drawing/Resources/img/Trainer%20Sprites/tr_61.png"
-}, {
-  name: "Schoolkid Male",
-  img: "https://raw.githubusercontent.com/kwsch/PKHeX/master/PKHeX.Drawing/Resources/img/Trainer%20Sprites/tr_42.png"
-}, {
-  name: "Schoolkid Female",
-  img: "https://raw.githubusercontent.com/kwsch/PKHeX/master/PKHeX.Drawing/Resources/img/Trainer%20Sprites/tr_43.png"
-}, {
-  name: "Street Thug",
-  img: "https://raw.githubusercontent.com/kwsch/PKHeX/master/PKHeX.Drawing/Resources/img/Trainer%20Sprites/tr_56.png"
-}, {
-  name: "Swimmer",
-  img: "https://raw.githubusercontent.com/kwsch/PKHeX/master/PKHeX.Drawing/Resources/img/Trainer%20Sprites/tr_52.png"
-}];
-exports.ORASTrainers = ORASTrainers;
-},{}],"src/utils/swsh-trainers.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.SWSHTrainers = void 0;
-var SWSHTrainers = [{
-  name: "Red",
-  img: "https://github.com/ShinySylveon04/ditto-post-helper/blob/master/src/resources/sprites/Red.png?raw=true"
-}, {
-  name: "Ethan",
-  img: "https://github.com/ShinySylveon04/ditto-post-helper/blob/master/src/resources/sprites/Ethan.png?raw=true"
-}, {
-  name: "May",
-  img: "https://github.com/ShinySylveon04/ditto-post-helper/blob/master/src/resources/sprites/May.png?raw=true"
-}, {
-  name: "Brendan",
-  img: "https://github.com/ShinySylveon04/ditto-post-helper/blob/master/src/resources/sprites/Brendan.png?raw=true"
-}, {
-  name: "Dawn",
-  img: "https://github.com/ShinySylveon04/ditto-post-helper/blob/master/src/resources/sprites/Dawn.png?raw=true"
-}, {
-  name: "Lucas",
-  img: "https://github.com/ShinySylveon04/ditto-post-helper/blob/master/src/resources/sprites/Lucas.png?raw=true"
-}, {
-  name: "Hilda",
-  img: "https://github.com/ShinySylveon04/ditto-post-helper/blob/master/src/resources/sprites/Hilda.png?raw=true"
-}, {
-  name: "Hilbert",
-  img: "https://github.com/ShinySylveon04/ditto-post-helper/blob/master/src/resources/sprites/Hilbert.png?raw=true"
-}];
-exports.SWSHTrainers = SWSHTrainers;
-},{}],"src/views/pick-a-ditto.js":[function(require,module,exports) {
+},{"../components/Dropdown":"src/components/Dropdown.js"}],"src/views/pick-a-ditto.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -90787,24 +90599,12 @@ var _passEventValue = require("../utils/pass-event-value");
 
 var _dittoTypes = require("../utils/ditto-types");
 
-var _pokemonDeposits = require("../utils/pokemon-deposits");
-
-var _getGameGeneration = require("../utils/get-game-generation");
-
-var _gtsMessages = require("../utils/gts-messages");
-
-var _orasTrainers = require("../utils/oras-trainers");
-
-var _swshTrainers = require("../utils/swsh-trainers");
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(_ref) {
-  var dittoNature = _ref.dittoNature,
-      player = _ref.player;
+  var dittoNature = _ref.dittoNature;
   return {
-    dittoNature: dittoNature,
-    game: player.game
+    dittoNature: dittoNature
   };
 };
 
@@ -90815,26 +90615,9 @@ var mapDispatchToProps = {
 };
 
 var PickADittoView = function PickADittoView(_ref2) {
-  var setPlayer = _ref2.setPlayer,
-      setDeposit = _ref2.setDeposit,
-      setDittoNature = _ref2.setDittoNature,
+  var setDittoNature = _ref2.setDittoNature,
       children = _ref2.children,
-      dittoNature = _ref2.dittoNature,
-      game = _ref2.game;
-
-  var onChangeGame = function onChangeGame(game) {
-    var isGenSixGame = (0, _getGameGeneration.getGameGen)(game) === 6;
-    var isGenEightGame = (0, _getGameGeneration.getGameGen)(game) === 8;
-    var defaultPokemon = isGenSixGame ? _pokemonDeposits.gen6Pokemon[0] : isGenEightGame ? _pokemonDeposits.gen8Pokemon[0] : _pokemonDeposits.gen7Pokemon[0];
-    var defaultGTSMessage = isGenSixGame ? "" : _gtsMessages.gtsMessages[0];
-    var description = game === "ORAS" ? _orasTrainers.ORASTrainers[0] : game === "Sword/Shield" ? _swshTrainers.SWSHTrainers[0].name : "";
-    setPlayer("game", game);
-    setPlayer("trainerDescription", description);
-    setPlayer("gtsMessage", defaultGTSMessage);
-    setDeposit("species", defaultPokemon);
-  };
-
-  var gameDropdownItems = (0, _Dropdown.createDropdownItems)(["ORAS", "XY", "Sun/Moon", "Ultra Sun/Ultra Moon", "Sword/Shield"]);
+      dittoNature = _ref2.dittoNature;
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Paper.PaperLayout, null, /*#__PURE__*/_react.default.createElement(_Typography.default, {
     variant: "h4"
   }, "Pick your Ditto"), /*#__PURE__*/_react.default.createElement(_Dropdown.StyledDropdown, {
@@ -90843,13 +90626,7 @@ var PickADittoView = function PickADittoView(_ref2) {
     name: "dittoNature",
     id: "dittoNature",
     onChange: (0, _passEventValue.passEventValue)(setDittoNature)
-  }, _dittoTypes.natureDropdownItems), /*#__PURE__*/_react.default.createElement(_Dropdown.StyledDropdown, {
-    value: game,
-    label: "Game Version",
-    name: "gameVersion",
-    id: "gameVersion",
-    onChange: (0, _passEventValue.passEventValue)(onChangeGame)
-  }, gameDropdownItems), /*#__PURE__*/_react.default.createElement(_Link.default, {
+  }, _dittoTypes.natureDropdownItems), /*#__PURE__*/_react.default.createElement(_Link.default, {
     href: "https://www.reddit.com/r/morebreedingdittos/wiki/dittos",
     target: "_blank",
     rel: "noreferrer noopener",
@@ -90866,7 +90643,7 @@ var PickADittoView = function PickADittoView(_ref2) {
 
 var ConnectedPickADittoView = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(PickADittoView);
 exports.ConnectedPickADittoView = ConnectedPickADittoView;
-},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","../actions":"src/actions.js","@material-ui/core/Typography":"node_modules/@material-ui/core/esm/Typography/index.js","@material-ui/core/Link":"node_modules/@material-ui/core/esm/Link/index.js","../components/Paper":"src/components/Paper.js","../components/Dropdown":"src/components/Dropdown.js","../utils/pass-event-value":"src/utils/pass-event-value.js","../utils/ditto-types":"src/utils/ditto-types.js","../utils/pokemon-deposits":"src/utils/pokemon-deposits.js","../utils/get-game-generation":"src/utils/get-game-generation.js","../utils/gts-messages":"src/utils/gts-messages.js","../utils/oras-trainers":"src/utils/oras-trainers.js","../utils/swsh-trainers":"src/utils/swsh-trainers.js"}],"node_modules/lodash/_baseRest.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","../actions":"src/actions.js","@material-ui/core/Typography":"node_modules/@material-ui/core/esm/Typography/index.js","@material-ui/core/Link":"node_modules/@material-ui/core/esm/Link/index.js","../components/Paper":"src/components/Paper.js","../components/Dropdown":"src/components/Dropdown.js","../utils/pass-event-value":"src/utils/pass-event-value.js","../utils/ditto-types":"src/utils/ditto-types.js"}],"node_modules/lodash/_baseRest.js":[function(require,module,exports) {
 var identity = require('./identity'),
     overRest = require('./_overRest'),
     setToString = require('./_setToString');
@@ -92233,7 +92010,16 @@ var StyledTextField = function StyledTextField(_ref) {
 };
 
 exports.StyledTextField = StyledTextField;
-},{"react":"node_modules/react/index.js","@material-ui/core/styles":"node_modules/@material-ui/core/esm/styles/index.js","@material-ui/core/TextField":"node_modules/@material-ui/core/esm/TextField/index.js"}],"src/utils/pokeballs.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","@material-ui/core/styles":"node_modules/@material-ui/core/esm/styles/index.js","@material-ui/core/TextField":"node_modules/@material-ui/core/esm/TextField/index.js"}],"src/utils/pokemon-deposits.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.gen8Pokemon = void 0;
+var gen8Pokemon = ["Wingull", "Chewtle", "Bunnelby"];
+exports.gen8Pokemon = gen8Pokemon;
+},{}],"src/utils/pokeballs.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -92268,8 +92054,6 @@ var _TextField = require("../components/TextField");
 
 var _passEventValue = require("../utils/pass-event-value");
 
-var _getGameGeneration = require("../utils/get-game-generation");
-
 var _pokemonDeposits = require("../utils/pokemon-deposits");
 
 var _pokeballs = require("../utils/pokeballs");
@@ -92277,13 +92061,11 @@ var _pokeballs = require("../utils/pokeballs");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(_ref) {
-  var deposit = _ref.deposit,
-      player = _ref.player;
+  var deposit = _ref.deposit;
   return {
     species: deposit.species,
     ball: deposit.ball,
-    gender: deposit.gender,
-    game: player.game
+    gender: deposit.gender
   };
 };
 
@@ -92292,8 +92074,7 @@ var mapDispatchToProps = {
 };
 
 var DepositPokemonView = function DepositPokemonView(_ref2) {
-  var game = _ref2.game,
-      children = _ref2.children,
+  var children = _ref2.children,
       setDeposit = _ref2.setDeposit,
       species = _ref2.species,
       ball = _ref2.ball,
@@ -92306,7 +92087,7 @@ var DepositPokemonView = function DepositPokemonView(_ref2) {
     id: "pokemonDeposit",
     name: "pokemonDeposit",
     onChange: (0, _passEventValue.passEventValue)((0, _partial.default)(setDeposit, "species"))
-  }, (0, _Dropdown.createDropdownItems)((0, _getGameGeneration.getGameGen)(game) === 6 ? _pokemonDeposits.gen6Pokemon : (0, _getGameGeneration.getGameGen)(game) === 8 ? _pokemonDeposits.gen8Pokemon : _pokemonDeposits.gen7Pokemon)), /*#__PURE__*/_react.default.createElement(_Dropdown.StyledDropdown, {
+  }, (0, _Dropdown.createDropdownItems)(_pokemonDeposits.gen8Pokemon)), /*#__PURE__*/_react.default.createElement(_Dropdown.StyledDropdown, {
     value: ball,
     label: "Pokeball",
     id: "pokeball",
@@ -92331,82 +92112,16 @@ var DepositPokemonView = function DepositPokemonView(_ref2) {
 
 var ConnectedDepositPokemonView = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(DepositPokemonView);
 exports.ConnectedDepositPokemonView = ConnectedDepositPokemonView;
-},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","../actions":"src/actions.js","lodash/partial":"node_modules/lodash/partial.js","@material-ui/core/Typography":"node_modules/@material-ui/core/esm/Typography/index.js","../components/Paper":"src/components/Paper.js","../components/Dropdown":"src/components/Dropdown.js","../components/TextField":"src/components/TextField.js","../utils/pass-event-value":"src/utils/pass-event-value.js","../utils/get-game-generation":"src/utils/get-game-generation.js","../utils/pokemon-deposits":"src/utils/pokemon-deposits.js","../utils/pokeballs":"src/utils/pokeballs.js"}],"node_modules/@material-ui/icons/HelpOutline.js":[function(require,module,exports) {
-"use strict";
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var React = _interopRequireWildcard(require("react"));
-
-var _createSvgIcon = _interopRequireDefault(require("./utils/createSvgIcon"));
-
-var _default = (0, _createSvgIcon.default)( /*#__PURE__*/React.createElement("path", {
-  d: "M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"
-}), 'HelpOutline');
-
-exports.default = _default;
-},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/interopRequireWildcard":"node_modules/@babel/runtime/helpers/interopRequireWildcard.js","react":"node_modules/react/index.js","./utils/createSvgIcon":"node_modules/@material-ui/icons/utils/createSvgIcon.js"}],"src/utils/clothing-lists.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","../actions":"src/actions.js","lodash/partial":"node_modules/lodash/partial.js","@material-ui/core/Typography":"node_modules/@material-ui/core/esm/Typography/index.js","../components/Paper":"src/components/Paper.js","../components/Dropdown":"src/components/Dropdown.js","../components/TextField":"src/components/TextField.js","../utils/pass-event-value":"src/utils/pass-event-value.js","../utils/pokemon-deposits":"src/utils/pokemon-deposits.js","../utils/pokeballs":"src/utils/pokeballs.js"}],"src/utils/gts-messages.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.ClothingLists = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _Typography = _interopRequireDefault(require("@material-ui/core/Typography"));
-
-var _Link = _interopRequireDefault(require("@material-ui/core/Link"));
-
-var _styles = require("@material-ui/core/styles");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var useStyles = (0, _styles.makeStyles)(function (theme) {
-  return {
-    root: {
-      '& > * + *': {
-        marginLeft: theme.spacing(1)
-      }
-    }
-  };
-});
-var links = [{
-  link: "https://www.serebii.net/xy/customisation.shtml",
-  text: "XY"
-}, {
-  link: "https://www.serebii.net/sunmoon/customisation.shtml",
-  text: "Sun/Moon"
-}, {
-  link: "https://www.serebii.net/ultrasunultramoon/customisation.shtml",
-  text: "Ultra Sun/Ultra Moon"
-}];
-
-var ClothingLists = function ClothingLists() {
-  var classes = useStyles();
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Typography.default, {
-    variant: "body2",
-    className: classes.root
-  }, "Clothing Lists:", " ", links.map(function (link, index) {
-    return /*#__PURE__*/_react.default.createElement(_Link.default, {
-      href: link.link,
-      target: "_blank",
-      rel: "noreferrer noopener",
-      key: index
-    }, link.text);
-  })));
-};
-
-exports.ClothingLists = ClothingLists;
-},{"react":"node_modules/react/index.js","@material-ui/core/Typography":"node_modules/@material-ui/core/esm/Typography/index.js","@material-ui/core/Link":"node_modules/@material-ui/core/esm/Link/index.js","@material-ui/core/styles":"node_modules/@material-ui/core/esm/styles/index.js"}],"src/views/in-game-player.js":[function(require,module,exports) {
+exports.gtsMessages = void 0;
+var gtsMessages = ["Please trade Pokemon with me. Thanks in advance.", "I want to trade for a Pokemon that will help me with my adventure.", "I want to trade for a Pokemon that is strong in battles.", "I want to trade for a treasured Pokemon that has been raised from an Egg.", "I want to fill my Pokedex.", "I want to fill my Pokedex with other languages.", "I want to trade for one of your precious Pokemon you've given a nickname to.", "This is a Pokemon I raised very carefully. Please trade with me if you'd like.", "This is a Pokemon that just hatched. Please raise it carefully.", "This is a Pokemon that I raised so that it will do great in battles.", "This is a Pokemon with great potential. Please raise it if you'd like."];
+exports.gtsMessages = gtsMessages;
+},{}],"src/views/in-game-player.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -92422,17 +92137,9 @@ var _actions = require("../actions");
 
 var _partial = _interopRequireDefault(require("lodash/partial"));
 
-var _HelpOutline = _interopRequireDefault(require("@material-ui/icons/HelpOutline"));
-
 var _Typography = _interopRequireDefault(require("@material-ui/core/Typography"));
 
 var _Paper = require("../components/Paper");
-
-var _makeStyles = _interopRequireDefault(require("@material-ui/core/styles/makeStyles"));
-
-var _IconButton = _interopRequireDefault(require("@material-ui/core/IconButton"));
-
-var _Tooltip = _interopRequireDefault(require("@material-ui/core/Tooltip"));
 
 var _Dropdown = require("../components/Dropdown");
 
@@ -92441,14 +92148,6 @@ var _TextField = require("../components/TextField");
 var _passEventValue = require("../utils/pass-event-value");
 
 var _gtsMessages = require("../utils/gts-messages");
-
-var _orasTrainers = require("../utils/oras-trainers");
-
-var _swshTrainers = require("../utils/swsh-trainers");
-
-var _getGameGeneration = require("../utils/get-game-generation");
-
-var _clothingLists = require("../utils/clothing-lists");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -92460,26 +92159,10 @@ var mapStateToProps = function mapStateToProps(_ref) {
 var mapDispatchToProps = {
   setPlayer: _actions.setPlayer
 };
-var useStyles = (0, _makeStyles.default)({
-  tooltip: {
-    backgroundColor: "#f5f5f9",
-    color: "rgba(0, 0, 0, 0.87)",
-    maxWidth: 220,
-    border: "1px solid #dadde9"
-  }
-});
 
-var GTSMessageTextField = function GTSMessageTextField(_ref2) {
-  var setPlayer = _ref2.setPlayer;
-  return /*#__PURE__*/_react.default.createElement(_TextField.StyledTextField, {
-    label: "GTS Message",
-    onChange: (0, _passEventValue.passEventValue)((0, _partial.default)(setPlayer, "gtsMessage"))
-  });
-};
-
-var GTSDropdown = function GTSDropdown(_ref3) {
-  var setPlayer = _ref3.setPlayer,
-      gtsMessage = _ref3.gtsMessage;
+var GTSDropdown = function GTSDropdown(_ref2) {
+  var setPlayer = _ref2.setPlayer,
+      gtsMessage = _ref2.gtsMessage;
   return /*#__PURE__*/_react.default.createElement(_Dropdown.StyledDropdown, {
     value: gtsMessage,
     label: "GTS Message",
@@ -92487,118 +92170,25 @@ var GTSDropdown = function GTSDropdown(_ref3) {
     id: "gtsMessage",
     onChange: (0, _passEventValue.passEventValue)((0, _partial.default)(setPlayer, "gtsMessage"))
   }, (0, _Dropdown.createDropdownItems)(_gtsMessages.gtsMessages));
-}; // if game is Gen 6 use textfield instead of preset messages
-
-
-var GTSMessageInput = function GTSMessageInput(_ref4) {
-  var game = _ref4.game,
-      setPlayer = _ref4.setPlayer,
-      gtsMessage = _ref4.gtsMessage;
-  var GTSMessageComponent = (0, _getGameGeneration.getGameGen)(game) === 6 ? GTSMessageTextField : GTSDropdown;
-  return /*#__PURE__*/_react.default.createElement(GTSMessageComponent, {
-    setPlayer: setPlayer,
-    gtsMessage: gtsMessage
-  });
 };
 
-var tooltipTitle = /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Typography.default, {
-  variant: "subtitle1"
-}, "Trainer Description"), /*#__PURE__*/_react.default.createElement(_Typography.default, {
-  variant: "body2"
-}, "You can find how your trainer appears on the GTS by looking at your Trainer Card or Trainer Passport in-game"));
-
-var CustomTooltip = function CustomTooltip(_ref5) {
-  var classes = _ref5.classes,
-      children = _ref5.children;
-  return /*#__PURE__*/_react.default.createElement(_Tooltip.default, {
-    disableTouchListener: true,
-    placement: "top",
-    title: tooltipTitle,
-    classes: classes.tooltip
-  }, children);
-};
-
-var TrainerTextField = function TrainerTextField(_ref6) {
-  var setPlayer = _ref6.setPlayer,
-      classes = _ref6.classes;
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_TextField.StyledTextField, {
-    multiline: "true",
-    label: "Trainer description",
-    onChange: (0, _passEventValue.passEventValue)((0, _partial.default)(setPlayer, "trainerDescription"))
-  }), /*#__PURE__*/_react.default.createElement(_Typography.default, {
-    variant: "body2"
-  }, /*#__PURE__*/_react.default.createElement(CustomTooltip, {
-    classes: classes
-  }, /*#__PURE__*/_react.default.createElement(_IconButton.default, {
-    color: "primary"
-  }, /*#__PURE__*/_react.default.createElement(_HelpOutline.default, {
-    fontSize: "small"
-  }))), "Describe how your trainer looks in-game"), /*#__PURE__*/_react.default.createElement(_clothingLists.ClothingLists, null));
-};
-
-var ORASTrainerDropdown = function ORASTrainerDropdown(_ref7) {
-  var setPlayer = _ref7.setPlayer,
-      value = _ref7.value;
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Dropdown.StyledDropdown, {
-    value: value,
-    label: "Trainer Description",
-    name: "trainerDescription",
-    id: "trainerDescription",
-    onChange: (0, _passEventValue.passEventValue)((0, _partial.default)(setPlayer, "trainerDescription"))
-  }, (0, _Dropdown.createImageDropdownItems)(_orasTrainers.ORASTrainers)));
-};
-
-var SWSHTrainerDropdown = function SWSHTrainerDropdown(_ref8) {
-  var setPlayer = _ref8.setPlayer,
-      value = _ref8.value;
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Dropdown.StyledDropdown, {
-    value: value,
-    label: "Trainer Description",
-    name: "trainerDescription",
-    id: "trainerDescription",
-    onChange: (0, _passEventValue.passEventValue)((0, _partial.default)(setPlayer, "trainerDescription"))
-  }, (0, _Dropdown.createImageDropdownItems)(_swshTrainers.SWSHTrainers)));
-};
-
-var TrainerDescriptionInput = function TrainerDescriptionInput(_ref9) {
-  var game = _ref9.game,
-      setPlayer = _ref9.setPlayer,
-      value = _ref9.value,
-      classes = _ref9.classes;
-  var TrainerDescription = game === "ORAS" ? ORASTrainerDropdown : game === "Sword/Shield" ? SWSHTrainerDropdown : TrainerTextField;
-  return /*#__PURE__*/_react.default.createElement(TrainerDescription, {
-    setPlayer: setPlayer,
-    value: value,
-    classes: classes
-  });
-};
-
-var InGamePlayerView = function InGamePlayerView(_ref10) {
-  var setPlayer = _ref10.setPlayer,
-      children = _ref10.children,
-      language = _ref10.language,
-      trainerDescription = _ref10.trainerDescription,
-      game = _ref10.game,
-      gtsMessage = _ref10.gtsMessage;
-  var classes = useStyles();
+var InGamePlayerView = function InGamePlayerView(_ref3) {
+  var setPlayer = _ref3.setPlayer,
+      children = _ref3.children,
+      language = _ref3.language,
+      gtsMessage = _ref3.gtsMessage;
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Paper.PaperLayout, null, /*#__PURE__*/_react.default.createElement(_Typography.default, {
     variant: "h4"
-  }, "Describe your in-game player"), /*#__PURE__*/_react.default.createElement(_Dropdown.StyledDropdown, {
+  }, "Player Info"), /*#__PURE__*/_react.default.createElement(_Dropdown.StyledDropdown, {
     value: language,
     label: "Game Language",
     name: "gameLanguage",
     id: "gameLanguage",
     onChange: (0, _passEventValue.passEventValue)((0, _partial.default)(setPlayer, "language"))
-  }, (0, _Dropdown.createDropdownItems)(["English", "Japanese", "French", "Italian", "German", "Spanish", "Korean", "Chinese"])), /*#__PURE__*/_react.default.createElement(TrainerDescriptionInput, {
-    value: trainerDescription,
-    game: game,
-    setPlayer: setPlayer,
-    classes: classes
-  }), /*#__PURE__*/_react.default.createElement(_TextField.StyledTextField, {
-    label: "Home Name/IGN",
+  }, (0, _Dropdown.createDropdownItems)(["English", "Japanese", "French", "Italian", "German", "Spanish", "Korean", "Chinese"])), /*#__PURE__*/_react.default.createElement(_TextField.StyledTextField, {
+    label: "Home Name",
     onChange: (0, _passEventValue.passEventValue)((0, _partial.default)(setPlayer, "inGameName"))
-  }), /*#__PURE__*/_react.default.createElement(GTSMessageInput, {
-    game: game,
+  }), /*#__PURE__*/_react.default.createElement(GTSDropdown, {
     setPlayer: setPlayer,
     gtsMessage: gtsMessage
   }), children));
@@ -92606,7 +92196,7 @@ var InGamePlayerView = function InGamePlayerView(_ref10) {
 
 var ConnectedInGamePlayerView = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(InGamePlayerView);
 exports.ConnectedInGamePlayerView = ConnectedInGamePlayerView;
-},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","../actions":"src/actions.js","lodash/partial":"node_modules/lodash/partial.js","@material-ui/icons/HelpOutline":"node_modules/@material-ui/icons/HelpOutline.js","@material-ui/core/Typography":"node_modules/@material-ui/core/esm/Typography/index.js","../components/Paper":"src/components/Paper.js","@material-ui/core/styles/makeStyles":"node_modules/@material-ui/core/styles/makeStyles.js","@material-ui/core/IconButton":"node_modules/@material-ui/core/esm/IconButton/index.js","@material-ui/core/Tooltip":"node_modules/@material-ui/core/esm/Tooltip/index.js","../components/Dropdown":"src/components/Dropdown.js","../components/TextField":"src/components/TextField.js","../utils/pass-event-value":"src/utils/pass-event-value.js","../utils/gts-messages":"src/utils/gts-messages.js","../utils/oras-trainers":"src/utils/oras-trainers.js","../utils/swsh-trainers":"src/utils/swsh-trainers.js","../utils/get-game-generation":"src/utils/get-game-generation.js","../utils/clothing-lists":"src/utils/clothing-lists.js"}],"src/utils/copy-to-clipboard.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","../actions":"src/actions.js","lodash/partial":"node_modules/lodash/partial.js","@material-ui/core/Typography":"node_modules/@material-ui/core/esm/Typography/index.js","../components/Paper":"src/components/Paper.js","../components/Dropdown":"src/components/Dropdown.js","../components/TextField":"src/components/TextField.js","../utils/pass-event-value":"src/utils/pass-event-value.js","../utils/gts-messages":"src/utils/gts-messages.js"}],"src/utils/copy-to-clipboard.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -92650,14 +92240,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.createPostText = exports.createPostTitle = void 0;
 
-var _getGameGeneration = require("./get-game-generation");
-
 var createPostTitle = function createPostTitle(_ref) {
   var dittoNature = _ref.dittoNature,
       deposit = _ref.deposit;
   var genderLetter = deposit.gender === "Male" ? "M" : "F";
-  var ditto = dittoNature.includes("HP") ? dittoNature.split(" ")[1] : dittoNature;
-  return "[".concat(ditto, "] ").concat(deposit.species, ", ").concat(genderLetter, ", ").concat(deposit.level);
+  return "[".concat(dittoNature, "] ").concat(deposit.species, ", ").concat(genderLetter, ", ").concat(deposit.level);
 };
 
 exports.createPostTitle = createPostTitle;
@@ -92666,13 +92253,11 @@ var createPostText = function createPostText(_ref2) {
   var dittoNature = _ref2.dittoNature,
       player = _ref2.player,
       deposit = _ref2.deposit;
-  var gen = (0, _getGameGeneration.getGameGen)(player.game);
-  var dittoType = dittoNature.replace("HP ", "");
-  return "[".concat(gen, "]\n\n - Ditto Requested: ").concat(dittoType, "\n \n ---\n \n - Pok\xE9mon Deposited: ").concat(deposit.species, "\n - Nickname: ").concat(deposit.nickname, "\n - Pokeball: ").concat(deposit.ball, "\n - Gender: ").concat(deposit.gender, "\n - Level: ").concat(deposit.level, "\n \n ---\n \n - Home/IGN: ").concat(player.inGameName, "\n - GTS Message: ").concat(player.gtsMessage, "\n - Game Version: ").concat(player.game, "\n - Game Language: ").concat(player.language, "\n - Trainer Description: ").concat(player.trainerDescription);
+  return "- Ditto Requested: ".concat(dittoNature, "\n \n ---\n \n - Pok\xE9mon Deposited: ").concat(deposit.species, "\n - Nickname: ").concat(deposit.nickname, "\n - Pokeball: ").concat(deposit.ball, "\n - Gender: ").concat(deposit.gender, "\n - Level: ").concat(deposit.level, "\n \n ---\n \n - Home name: ").concat(player.inGameName, "\n - GTS Message: ").concat(player.gtsMessage, "\n - Game Language: ").concat(player.language);
 };
 
 exports.createPostText = createPostText;
-},{"./get-game-generation":"src/utils/get-game-generation.js"}],"node_modules/@material-ui/icons/OpenInNew.js":[function(require,module,exports) {
+},{}],"node_modules/@material-ui/icons/OpenInNew.js":[function(require,module,exports) {
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -93690,8 +93275,6 @@ exports.store = exports.initialState = void 0;
 
 var _redux = require("redux");
 
-var _orasTrainers = require("./utils/oras-trainers");
-
 var _pokemonDeposits = require("./utils/pokemon-deposits");
 
 var _pokeballs = require("./utils/pokeballs");
@@ -93702,7 +93285,7 @@ var initialState = {
   activeStep: 0,
   dittoNature: "Adamant",
   deposit: {
-    species: _pokemonDeposits.gen6Pokemon[0],
+    species: _pokemonDeposits.gen8Pokemon[0],
     ball: _pokeballs.pokeballs[0],
     gender: "Male",
     nickname: "",
@@ -93710,17 +93293,14 @@ var initialState = {
   },
   player: {
     language: "English",
-    game: "ORAS",
-    trainerDescription: _orasTrainers.ORASTrainers[0].name,
     inGameName: "",
-    gtsMessage: "",
-    consoleRegion: ""
+    gtsMessage: ""
   }
 };
 exports.initialState = initialState;
 var store = (0, _redux.createStore)(_reducers.appReducer, initialState);
 exports.store = store;
-},{"redux":"node_modules/redux/es/redux.js","./utils/oras-trainers":"src/utils/oras-trainers.js","./utils/pokemon-deposits":"src/utils/pokemon-deposits.js","./utils/pokeballs":"src/utils/pokeballs.js","./reducers":"src/reducers.js"}],"src/index.js":[function(require,module,exports) {
+},{"redux":"node_modules/redux/es/redux.js","./utils/pokemon-deposits":"src/utils/pokemon-deposits.js","./utils/pokeballs":"src/utils/pokeballs.js","./reducers":"src/reducers.js"}],"src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -93798,11 +93378,6 @@ var styles = function styles(theme) {
       margin: 5
     }
   };
-}; // don't allow requesting of HP Ditto for Gen 8 or level 1 deposits
-
-
-var checkInput = function checkInput(dittoNature, game, deposit) {
-  return ["Hidden Power"].includes(dittoNature) && ["Sword/Shield"].includes(game) || deposit.level === "1";
 };
 
 var App = function App(_ref2) {
@@ -93835,8 +93410,7 @@ var App = function App(_ref2) {
     color: "primary",
     className: classes.button,
     endIcon: /*#__PURE__*/_react.default.createElement(_Send.default, null),
-    onClick: increaseActiveStep,
-    disabled: checkInput(dittoNature, game, deposit)
+    onClick: increaseActiveStep
   }, "Next"));
 
   return /*#__PURE__*/_react.default.createElement(_styles.MuiThemeProvider, {
@@ -93894,7 +93468,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53986" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60763" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
