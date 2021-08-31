@@ -15,6 +15,5 @@ export const natureDropdownItems = createDropdownItems([
   "Sassy",
   "Careful",
   "0 Attack",
-  "Hidden Power",
   "0Spe&0Atk"
 ]);

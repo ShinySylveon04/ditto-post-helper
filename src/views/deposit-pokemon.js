@@ -7,19 +7,15 @@ import { PaperLayout } from "../components/Paper";
 import { StyledDropdown, createDropdownItems } from "../components/Dropdown";
 import { StyledTextField } from "../components/TextField";
 import { passEventValue } from "../utils/pass-event-value";
-import { getGameGen } from "../utils/get-game-generation";
 import {
-  gen6Pokemon,
-  gen7Pokemon,
   gen8Pokemon
 } from "../utils/pokemon-deposits";
 import { pokeballs } from "../utils/pokeballs";
 
-const mapStateToProps = ({ deposit, player }) => ({
+const mapStateToProps = ({ deposit }) => ({
   species: deposit.species,
   ball: deposit.ball,
-  gender: deposit.gender,
-  game: player.game
+  gender: deposit.gender
 });
 
 const mapDispatchToProps = {
@@ -27,7 +23,6 @@ const mapDispatchToProps = {
 };
 
 const DepositPokemonView = ({
-  game,
   children,
   setDeposit,
   species,
@@ -45,13 +40,7 @@ const DepositPokemonView = ({
           name="pokemonDeposit"
           onChange={passEventValue(partial(setDeposit, "species"))}
         >
-          {createDropdownItems(
-            getGameGen(game) === 6
-              ? gen6Pokemon
-              : getGameGen(game) === 8
-                ? gen8Pokemon
-                : gen7Pokemon
-          )}
+          {createDropdownItems(gen8Pokemon)}
         </StyledDropdown>
         <StyledDropdown
           value={ball}

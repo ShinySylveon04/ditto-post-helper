@@ -42,22 +42,10 @@ const styles = (theme) => ({
   button: { margin: 5 },
 });
 
-// don't allow requesting of HP Ditto for Gen 8 or level 1 deposits
-const checkInput = (dittoNature, game, deposit) => {
-  return (
-    (["Hidden Power"].includes(dittoNature) &&
-      ["Sword/Shield"].includes(game)) ||
-    deposit.level === "1"
-  );
-};
-
 const App = ({
   classes,
   setActiveStep,
-  activeStep,
-  dittoNature,
-  game,
-  deposit,
+  activeStep
 }) => {
   const increaseActiveStep = () => {
     const step = Math.min(activeStep + 1, 3);
@@ -90,7 +78,6 @@ const App = ({
           className={classes.button}
           endIcon={<SendIcon />}
           onClick={increaseActiveStep}
-          disabled={checkInput(dittoNature, game, deposit)}
         >
           Next
         </Button>
