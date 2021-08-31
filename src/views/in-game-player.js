@@ -27,14 +27,14 @@ const mapDispatchToProps = {
   setPlayer
 };
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   tooltip: {
     backgroundColor: "#f5f5f9",
     color: "rgba(0, 0, 0, 0.87)",
     maxWidth: 220,
     border: "1px solid #dadde9"
   }
-}));
+});
 
 const GTSMessageTextField = ({ setPlayer }) => (
   <StyledTextField

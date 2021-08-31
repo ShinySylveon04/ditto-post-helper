@@ -2,7 +2,7 @@ import React from "react";
 import Paper from "@material-ui/core/Paper";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   paper: {
     maxWidth: "500px",
     margin: "10px auto",
@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "column",
     alignItems: "center"
   }
-}));
+});
 
 export function PaperLayout({ children }) {
   const classes = useStyles();
