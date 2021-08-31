@@ -2,46 +2,21 @@ import React from "react";
 import { connect } from "react-redux";
 import { setPlayer } from "../actions";
 import partial from "lodash/partial";
-import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import Typography from "@material-ui/core/Typography";
 import { PaperLayout } from "../components/Paper";
-import makeStyles from "@material-ui/core/styles/makeStyles";
-import IconButton from "@material-ui/core/IconButton";
-import Tooltip from "@material-ui/core/Tooltip";
 import {
   StyledDropdown,
-  createImageDropdownItems,
   createDropdownItems
 } from "../components/Dropdown";
 import { StyledTextField } from "../components/TextField";
 import { passEventValue } from "../utils/pass-event-value";
 import { gtsMessages } from "../utils/gts-messages";
-import { ORASTrainers } from "../utils/oras-trainers";
-import { SWSHTrainers } from "../utils/swsh-trainers";
-import { getGameGen } from "../utils/get-game-generation";
-import { ClothingLists } from "../utils/clothing-lists";
 
 const mapStateToProps = ({ player }) => player;
 
 const mapDispatchToProps = {
   setPlayer
 };
-
-const useStyles = makeStyles({
-  tooltip: {
-    backgroundColor: "#f5f5f9",
-    color: "rgba(0, 0, 0, 0.87)",
-    maxWidth: 220,
-    border: "1px solid #dadde9"
-  }
-});
-
-const GTSMessageTextField = ({ setPlayer }) => (
-  <StyledTextField
-    label="GTS Message"
-    onChange={passEventValue(partial(setPlayer, "gtsMessage"))}
-  />
-);
 
 const GTSDropdown = ({ setPlayer, gtsMessage }) => (
   <StyledDropdown
@@ -55,108 +30,16 @@ const GTSDropdown = ({ setPlayer, gtsMessage }) => (
   </StyledDropdown>
 );
 
-// if game is Gen 6 use textfield instead of preset messages
-const GTSMessageInput = ({ game, setPlayer, gtsMessage }) => {
-  const GTSMessageComponent =
-    getGameGen(game) === 6 ? GTSMessageTextField : GTSDropdown;
-
-  return <GTSMessageComponent setPlayer={setPlayer} gtsMessage={gtsMessage} />;
-};
-
-const tooltipTitle = (
-  <React.Fragment>
-    <Typography variant="subtitle1">Trainer Description</Typography>
-    <Typography variant="body2">
-      You can find how your trainer appears on the GTS by looking at your
-      Trainer Card or Trainer Passport in-game
-    </Typography>
-  </React.Fragment>
-);
-
-const CustomTooltip = ({ classes, children }) => (
-  <Tooltip
-    disableTouchListener
-    placement="top"
-    title={tooltipTitle}
-    classes={classes.tooltip}
-  >
-    {children}
-  </Tooltip>
-);
-
-const TrainerTextField = ({ setPlayer, classes }) => (
-  <React.Fragment>
-    <StyledTextField
-      multiline="true"
-      label="Trainer description"
-      onChange={passEventValue(partial(setPlayer, "trainerDescription"))}
-    />
-    <Typography variant="body2">
-      <CustomTooltip classes={classes}>
-        <IconButton color="primary">
-          <HelpOutlineIcon fontSize="small" />
-        </IconButton>
-      </CustomTooltip>
-      Describe how your trainer looks in-game
-    </Typography>
-    <ClothingLists/>
-  </React.Fragment>
-);
-
-const ORASTrainerDropdown = ({ setPlayer, value }) => (
-  <React.Fragment>
-    <StyledDropdown
-      value={value}
-      label="Trainer Description"
-      name="trainerDescription"
-      id="trainerDescription"
-      onChange={passEventValue(partial(setPlayer, "trainerDescription"))}
-    >
-      {createImageDropdownItems(ORASTrainers)}
-    </StyledDropdown>
-  </React.Fragment>
-);
-
-const SWSHTrainerDropdown = ({ setPlayer, value }) => (
-  <React.Fragment>
-    <StyledDropdown
-      value={value}
-      label="Trainer Description"
-      name="trainerDescription"
-      id="trainerDescription"
-      onChange={passEventValue(partial(setPlayer, "trainerDescription"))}
-    >
-      {createImageDropdownItems(SWSHTrainers)}
-    </StyledDropdown>
-  </React.Fragment>
-);
-
-const TrainerDescriptionInput = ({ game, setPlayer, value, classes }) => {
-  const TrainerDescription =
-    game === "ORAS"
-      ? ORASTrainerDropdown
-      : game === "Sword/Shield"
-        ? SWSHTrainerDropdown
-        : TrainerTextField;
-
-  return (
-    <TrainerDescription setPlayer={setPlayer} value={value} classes={classes} />
-  );
-};
-
 const InGamePlayerView = ({
   setPlayer,
   children,
   language,
-  trainerDescription,
-  game,
   gtsMessage
 }) => {
-  const classes = useStyles();
   return (
     <React.Fragment>
       <PaperLayout>
-        <Typography variant="h4">Describe your in-game player</Typography>
+        <Typography variant="h4">Player Info</Typography>
         <StyledDropdown
           value={language}
           label="Game Language"
@@ -175,21 +58,11 @@ const InGamePlayerView = ({
             "Chinese"
           ])}
         </StyledDropdown>
-        <TrainerDescriptionInput
-          value={trainerDescription}
-          game={game}
-          setPlayer={setPlayer}
-          classes={classes}
-        />
         <StyledTextField
-          label="Home Name/IGN"
+          label="Home Name"
           onChange={passEventValue(partial(setPlayer, "inGameName"))}
         />
-        <GTSMessageInput
-          game={game}
-          setPlayer={setPlayer}
-          gtsMessage={gtsMessage}
-        />
+        <GTSDropdown setPlayer={setPlayer} gtsMessage={gtsMessage} />
         {children}
       </PaperLayout>
     </React.Fragment>
