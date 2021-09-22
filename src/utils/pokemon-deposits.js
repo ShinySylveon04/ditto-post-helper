@@ -1,1 +1,1 @@
-export const gen8Pokemon = ["Wingull", "Chewtle", "Bunnelby"];
+export const gen8Pokemon = ["Wooloo", "Chewtle", "Rookidee"];
