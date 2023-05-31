@@ -5,6 +5,7 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "lint": "eslint src/**/*.js",
+    "build": "parcel build index.html --public-url /ditto-post-helper/",
     "start": "parcel index.html",
     "predeploy": "parcel build index.html --public-url /ditto-post-helper/",
     "deploy": "gh-pages -d dist"
